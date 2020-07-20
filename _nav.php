@@ -28,18 +28,25 @@
     </blockquote>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-5"><a href="">Author</a></div>
-        <div class="col-7">2 hours ago</div>
+        <div class="col-12 row justify-content-between">
+            <div class="col-3"><a href="">Author</a></div>
+            <div class="col-5">2 hours ago</div>
+        </div>
+        
     </div>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-5"><a href="">Author</a></div>
-        <div class="col-7">2 hours ago</div>
+        <div class="col-12 row justify-content-between">
+            <div class="col-3"><a href="">Author</a></div>
+            <div class="col-5">2 hours ago</div>
+        </div>
     </div>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-5"><a href="">Author</a></div>
-        <div class="col-7">2 hours ago</div>
+        <div class="col-12 row justify-content-between">
+            <div class="col-3"><a href="">Author</a></div>
+            <div class="col-5">2 hours ago</div>
+        </div>
     </div>
 
 </div>
