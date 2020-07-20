@@ -1,6 +1,6 @@
 <article onclick="">
     <h3>title</h3>
-    <a href="">Author<img src="" alt="帳戶圖片"></a>
+    <a href="">Author<img src="" alt="帳戶圖片""/></a>
     <p>ContentContentContentContentContent</p>
     <img src="" onclick="" alt="按讚"/>
     <span>12</span>

@@ -7,15 +7,15 @@
 
 <body>
 <div>
-    <div>
-        <img src="" alt="醫聯網"/>
-        <img src="" alt="圖片"/>
-        <p>醫聯網的簡介</p>
-    </div>
+    <img src="" alt="醫聯網"/>
+    <img src="" alt="圖片"/>
+    <p>醫聯網的簡介</p>
+</div>
     
-    <div>
+<div>
     <a href="index.php">首頁</a>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <h1>註冊</h1>
+    <form name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
         <div>
         <h1>註冊</h1>
         <input type="hidden" name="ID"/>
@@ -24,7 +24,7 @@
         <input type="text" name="nickname" placeholder="暱稱："/>
         <input type="email" name="email" placeholder="電子信箱："/>
         <input type="password" name="password" placeholder="密碼："/>
-        <input type="hidden" name="photo" value="images/site/default_photo.png"
+        <input type="hidden" name="photo" value="site/default_photo.png"/>
         <p>您已經註冊了嗎？<a href="signin.php">現在登入</a></p>
         <button>下一步</button>
         </div>
@@ -34,24 +34,43 @@
         <h1>選擇喜好</h1>
         <div>
         <div>
-            <?php require("connect.php");
+            <?php require("_connect.php");
             $sql = $pdo->prepare('SELECT * FROM tag');
             $sql->execute();
             foreach ($sql->fetchAll() as $row) {
-                echo '<button id="'.$row['ID'].'">'.$row['name'].'</button>';
+                echo '<span id="'.$row['ID'].'" onclick="deleteTag('."'".$row["ID"]."'".')">'.$row['name'].'</span>';
             }?>
             <!-- "X"用偽元素::after製作 -->
             <span>至少選三項</span>
         </div>
         <ul id="tags">
-            <!-- <?php echo $sql->rowCount(); ?> -->
+            <p id="rowCount"><?php echo $sql->rowCount(); ?></p>
             <?php
             $sql = $pdo->prepare('SELECT * FROM tag');
             $sql->execute();
             foreach ($sql->fetchAll() as $row) {
-                echo '<li>'.$row['name'].'</li>';
+                echo '<li onclick="chooseTag('."'".$row["ID"]."'".')">'.$row['name'].'</li>';
             }
             ?>
+            <p id="count"></p>
+            <script>
+                // 標籤的個數
+                let tagsQuantity = document.getElementById("rowCount").innerHTML;
+                 // 所有標籤的瀏覽次數
+                let tagCount = [];
+                // 初始化
+                for (let i = 0; i <= tagsQuantity; i++) { tagCount[i] = 0; }
+                function chooseTag(ID) {
+                    tagCount[ID]  = tagCount[ID]%10 +10;
+                    document.getElementById(ID).style.display = "inline";
+                    document.getElementById("count").innerHTML = tagCount.join(" ");
+                }
+                function deleteTag(ID) {
+                    tagCount[ID]  = tagCount[ID]%10;
+                    document.getElementById(ID).style.display = "none";
+                    document.getElementById("count").innerHTML = tagCount.join(" ");
+                }
+            </script>
         </ul>
         </div>
         </div>

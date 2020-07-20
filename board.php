@@ -17,7 +17,7 @@
 <div>
     <div>
     <?php
-        require("connect.php");
+        require("_connect.php");
         $sql = $pdo->prepare('SELECT intro FROM board WHERE ID=?');
         $sql->execute([$_SESSION["board"]]);
         foreach ($sql->fetchAll() as $row) {

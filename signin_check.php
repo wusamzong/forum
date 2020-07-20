@@ -1,7 +1,7 @@
 <?php session_start();
 
 // 從資料庫取得使用者名稱、密碼、鹽
-require("connect.php");
+require("_connect.php");
 $sql = $pdo->prepare('SELECT userName,email,password,salt FROM account');
 $sql->execute();
 

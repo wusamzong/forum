@@ -11,6 +11,7 @@
     <img src="" alt="圖片"/>
     <p>醫聯網的簡介</p>
 </div>
+
 <div>
     <a href="index.php">首頁</a>
     <h1>登入</h1>
