@@ -4,17 +4,17 @@
 <head>
 
   <meta charset="utf-8">
-  <?php require('css.php') ?>
+  <?php require('_css.php') ?>
 </head>
 
 <body>
   <div class="container-md" style="margin: 0 10%;">
     <div class="row">
       <div class="col-12">
-        <?php require("_header.php"); ?>
+        <?php require("切版_header.php"); ?>
       </div>
       <div class="col-3">
-        <?php require("_nav.php"); ?>
+        <?php require("切版_nav.php"); ?>
       </div>
 
       <div class="col-9">
@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>
-  <?php require('js.php') ?>
+  <?php require('_js.php') ?>
 </body>
 
 </html>

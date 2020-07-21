@@ -14,8 +14,8 @@
     </div>
     <!-- 登入/註冊 -->
     <div class="p-2 bd-highlight d-flex align-items-center">
-      <a href="#">登入</a>
-      <button class="m-2 btn btn-primary">註冊</button>
+      <a href="./切版_signin.php">登入</a>
+      <a class="m-2 btn btn-primary" href="./切版_signup.php">註冊</a>
     </div>
   </div>
 </header>
