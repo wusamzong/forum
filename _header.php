@@ -1,29 +1,30 @@
 <!-- 頁首 -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a href="index.php"><img src="./images/MedNetLogo.png" alt="" width="120px"></a>
+            <li class="nav-item mx-5">
+                <a href="index.php"><img src="./images/site/Logo.png" alt="" width="260px"></a>
             </li>
         </ul>
 
-        <form class="form-inline my-2 ml-auto active-cyan-6" method="POST" action="" enctype="multipart/form-data">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" />
-            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="搜尋" />
-        </form>
-
-
+        <div class="d-flex justify-content-end align-items-center">
+            <div><form class="form-inline mx-4 active-cyan-6 text-right" method="POST" action="" enctype="multipart/form-data">
+                <input class="form-control mr-sm-2" style="width: 900px; height: 50px;" type="search" placeholder="Search" name="search" />
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="搜尋" />
+            </form></div>
         <?php
         if (!isset($_SESSION["userName"])) {
             echo '
-                <ul class="navbar-nav mr-auto">
+
+                <div><ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a href="signup.php" class="nav-link">註冊</a>
                     </li>
                     <li class="nav-item">
-                        <a href="signin.php" class="nav-link">登入</a>
+                        
+                        <a class="btn btn-primary" href="signin.php" class="nav-link">登入</a>
                     </li>
-                </ul>';
+                    </div></ul>';
         } else {
             echo '<img src="" alt="新增文章"/>';
 
@@ -39,6 +40,6 @@
             // 下拉選單與登出功能尚未製作
         }
         ?>
-
+        </div>
     </nav>
 </header>

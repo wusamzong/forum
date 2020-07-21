@@ -28,41 +28,34 @@
     </blockquote>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-12 row justify-content-between">
-            <div class="col-3"><a href="">Author</a></div>
-            <div class="col-5">2 hours ago</div>
-        </div>
-        
+        <div class="col-6"><a href="">Author</a></div>
+        <div class="col-6 text-right">2 hours ago</div>
     </div>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-12 row justify-content-between">
-            <div class="col-3"><a href="">Author</a></div>
-            <div class="col-5">2 hours ago</div>
-        </div>
+        <div class="col-6"><a href="">Author</a></div>
+        <div class="col-6 text-right">2 hours ago</div>
     </div>
     <div class="row mx-1 my-1">
         <div class="col-12"><a href="">推薦的文章標題</a></div>
-        <div class="col-12 row justify-content-between">
-            <div class="col-3"><a href="">Author</a></div>
-            <div class="col-5">2 hours ago</div>
-        </div>
+        <div class="col-6"><a href="">Author</a></div>
+        <div class="col-6 text-right">2 hours ago</div>
     </div>
 
 </div>
 
 <!-- 其他連結 -->
 <div class="mx-4 mt-4">
-    <div class="row">
-        <div class="col"><a href="">關於我們</a></div>
-        <div class="col"><a href="">最新消息</a></div>
+    <div class="row justify-content-center">
+        <div class="col-5"><a href="">關於我們</a></div>
+        <div class="col-5 text-right"><a href="">最新消息</a></div>
     </div>
-    <div class="row">
-        <div class="col"><a href="">人才招募</a></div>
-        <div class="col"><a href="">免責聲明</a></div>
+    <div class="row justify-content-center">
+        <div class="col-5"><a href="">人才招募</a></div>
+        <div class="col-5 text-right"><a href="">免責聲明</a></div>
     </div>
-    <div class="row">
-        <div class="col"><a href="">業務合作</a></div>
-        <div class="col"><a href="">客服中心</a></div>
+    <div class="row justify-content-center">
+        <div class="col-5"><a href="">業務合作</a></div>
+        <div class="col-5 text-right"><a href="">客服中心</a></div>
     </div>
 </div>
