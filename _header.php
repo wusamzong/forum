@@ -13,8 +13,7 @@
         echo '<a href="signin.php">登入</a>';
     } else {
         // 新增文章、個人照片和下拉選單的按鈕
-        echo '<img src="" alt="新增文章"/>';
-
+        echo '<a href="article_write.php"><img src="" alt="新增文章"/></a>';
         require("_connect.php");
         $sql = $pdo->prepare('SELECT nickname,photo FROM account WHERE userName=?');
         $sql->execute([$_SESSION["userName"]]);
@@ -23,9 +22,11 @@
             echo '<span>'.$row["nickname"].'</span>';
             echo '<img src="" alt="下拉選單"/>';
         }
-
-        // 下拉選單
-        // header("Location: index.php");
+        
+        // 下拉選單 登出
+        // session_unset();
+        // session_destroy();
+        // header("refresh:1, url=index.php");
     }
     ?>
 </header>

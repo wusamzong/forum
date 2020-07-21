@@ -1,11 +1,28 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>發表文章</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php require('_css.php') ?>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">row1</div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+            <?php require("_header.php"); ?>
+
+
 <button><img src="" alt="返回"/></button>
-	<!-- <h1>新增文章</h1> -->
 
 <div>
-	<form method="post" action="save.php" enctype="multipart/form-data">
+	<form name="article_write" onsubmit="return validateForm()" action="article_save.php" method="post" enctype="multipart/form-data">
 	<div>
-		<input type="hidden" name="ID" value=""/>
-		<input type="hidden" name="authorID" value=""/>
 		<img src="" alt="個人照片"/>
 		<select name="hideName">
 			<option value="0">name</option>
@@ -44,4 +61,9 @@
 		<input type="submit" value="發佈"/>
 	</div>
 	</form>
+</div>
+
+</div>
+
+</div>
 </div>
