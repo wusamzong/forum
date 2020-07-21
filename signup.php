@@ -54,62 +54,69 @@
             }
             ?>
             <p id="tagError"></p>
-            <script>
-                // 標籤的個數
-                let tagsQuantity = document.getElementById("rowCount").innerHTML;
-                 // 所有標籤的瀏覽次數
-                let tagCount = [];
-                // 初始化
-                for (let i = 0; i <= tagsQuantity; i++) { tagCount[i] = 0; }
-                function chooseTag(ID) {
-                    tagCount[ID]  = tagCount[ID]%10 +10;
-                    document.getElementById(ID).style.display = "inline";
-                }
-                function deleteTag(ID) {
-                    tagCount[ID]  = tagCount[ID]%10;
-                    document.getElementById(ID).style.display = "none";
-                }
-            </script>
+            <input type="text" id="tagCount" name="tagCount"/>
             </ul>
             </div>
         </div>
         <input type="submit" value="註冊"/>
 
         <script>
+            // 標籤處理
+            // 標籤的個數，所有標籤的瀏覽次數，初始化
+            let tagsQuantity = document.getElementById("rowCount").innerHTML;
+            let tagCount = [];
+            for (let i=0; i<=tagsQuantity; i++) { tagCount[i] = 0; }
+            // 選擇與取消
+            function chooseTag(ID) {
+                tagCount[ID]  = tagCount[ID]%10 +10;
+                document.getElementById(ID).style.display = "inline";
+                tagTotal();
+            }
+            function deleteTag(ID) {
+                tagCount[ID]  = tagCount[ID]%10;
+                document.getElementById(ID).style.display = "none";
+                tagTotal();
+            }
+            function tagTotal() {
+                tagCount[0] = 0;
+                for (let i=0; i<=tagsQuantity; i++) {
+                    tagCount[0] += tagCount[i];
+                }
+                document.getElementById("tagCount").value = tagCount.join(" ");
+            }
+
+            // 檢查欄位是否皆有填寫
             function validateForm() {
                 var realName = document.forms["signup"]["realName"].value;
                 if (realName == "") {
                     document.getElementById("realNameError").innerHTML = "請輸入真實姓名";
                     return false;
-                }
+                } else { document.getElementById("realNameError").innerHTML = ""; }
 
                 var nickname = document.forms["signup"]["nickname"].value;
                 if (nickname == "") {
                     document.getElementById("nicknameError").innerHTML = "請輸入暱稱";
                     return false;
-                }
+                } else { document.getElementById("nicknameError").innerHTML = ""; }
 
                 var email = document.forms["signup"]["email"].value;
                 if (email == "") {
                     document.getElementById("emailError").innerHTML = "請輸入帳號（email）";
                     return false;
-                }
+                } else { document.getElementById("emailError").innerHTML = ""; }
 
                 var password = document.forms["signup"]["password"].value;
                 if (password == "") {
                     document.getElementById("passwordError").innerHTML = "請輸入密碼";
                     return false;
-                }
+                } else { document.getElementById("passwordError").innerHTML = ""; }
 
-                for (let i=0; i<=tagsQuantity; i++) {
-                    tagsCount[0] += tagsCount[i];
-                }
-                if (tagsCount[0] < 30) {
+                if (tagCount[0] < 30) {
                     document.getElementById("tagError").innerHTML = "請選擇至少三個標籤";
                     return false;
-                }
+                } else { document.getElementById("tagError").innerHTML = ""; }
             }
-        </script>
+            </script>
     </div>
     </form>
 </div>

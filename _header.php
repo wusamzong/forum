@@ -7,10 +7,12 @@
     </form>
     
     <?php
+    // 註冊和登入連結
     if (!isset($_SESSION["userName"])) {
         echo '<a href="signup.php">註冊</a>';
         echo '<a href="signin.php">登入</a>';
     } else {
+        // 新增文章、個人照片和下拉選單的按鈕
         echo '<img src="" alt="新增文章"/>';
 
         require("_connect.php");
@@ -22,7 +24,8 @@
             echo '<img src="" alt="下拉選單"/>';
         }
 
-        // 下拉選單與登出功能尚未製作
+        // 下拉選單
+        // header("Location: index.php");
     }
     ?>
 </header>
