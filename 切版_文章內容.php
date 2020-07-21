@@ -16,18 +16,24 @@
       <div class="col-3">
         <?php require("_nav.php"); ?>
       </div>
-      <div class="col-9 border bg-white shadow mt-4 rounded">
-        <div class="row mt-4 ml-4 mr-4">
-<!--文章的基本資料-->
-          <div class="media">
-            <img src="./images/site/大頭貼.png" width="60px" class="mr-1" alt="帳戶圖片">
-            <div class="media-body">
-              <p class="mt-0 mb-1">作者 <a href="#" class="badge badge-dark">追蹤</a></p>
-              <p class="m-0">XXXXXX看板</p>
+      <div class="col-9 mt-4">
+        <div class="border bg-white shadow rounded p-3">
+          <div class="row mt-4 ml-4 mr-4">
+
+            <!--文章的基本資料-->
+            <div class="media col-6">
+              <img src="./images/site/大頭貼.png" width="60px" class="mr-1" alt="帳戶圖片">
+              <div class="media-body">
+                <p class="mt-0 mb-1">作者 <a href="#" class="badge badge-dark">追蹤</a></p>
+                <p class="m-0">XXXXXX看板</p>
+              </div>
+            </div>
+            <div class="col-6 text-right">
+              <img src="./images/site/關閉.png" height="60px" alt="">
             </div>
           </div>
-<!--內文/標籤-->
-          <div class="col-12 border-top border-bottom my-3">
+          <!--內文/標籤-->
+          <div class=" border-top border-bottom my-3 px-4">
             <p class="my-1" style="white-space:pre-wrap;">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu sagittis eros, non volutpat risus. Aliquam at metus ut mi semper maximus vitae in magna. Donec faucibus sem non sodales molestie. Suspendisse elit odio, suscipit a porta id, pellentesque eget libero. Nulla varius ex ac blandit cursus. Donec ultrices varius aliquam. Suspendisse dolor enim, blandit ac placerat in, molestie sit amet dui. Praesent tristique tincidunt augue, a tincidunt quam mattis nec. Integer arcu libero, iaculis vel mauris vitae, posuere ullamcorper enim. Nunc nec posuere ligula. Phasellus ornare, metus vel hendrerit laoreet, augue nulla aliquet turpis, sit amet ultrices nibh nunc egestas felis. Aliquam quis justo elementum, consectetur augue vitae, tempor ipsum. Duis risus diam, vulputate at enim sed, commodo interdum dolor. Vivamus dictum nulla nisi, porttitor semper enim dictum at.
 
@@ -43,24 +49,27 @@
               <a href="#" class="badge badge-primary">#標籤1</a><a href="#" class="badge badge-primary ml-2">#標籤2</a>
             </div>
           </div>
- <!--數據/檢舉-->         
-          <div class="col-6">
-            <img src="./images/site/讚.png" height="40px" class="" alt="按讚" />
-            <span class="mr-3">12</span>
-            <img src="./images/site/對話框.png" height="40px" class="" alt="評論" />
-            <span class="mr-3">63</span>
-            <img src="./images/site/書籤.png" height="30px" class="" alt="收藏文章" />
-            <span class="ml-4">2 hours ago</span>
+          <!--數據/檢舉-->
+          <div class="row m-3">
+            <div class="col-6">
+              <img src="./images/site/讚.png" height="40px" class="" alt="按讚" />
+              <span class="mr-3">12</span>
+              <img src="./images/site/對話框.png" height="40px" class="" alt="評論" />
+              <span class="mr-3">63</span>
+              <img src="./images/site/書籤.png" height="30px" class="" alt="收藏文章" />
+              <span class="ml-4">2 hours ago</span>
+            </div>
+            <div class="col-6 text-right">
+              <img src="./images/site/檢舉.png" height="40px" class="" alt="檢舉" />
+            </div>
           </div>
-          <div class="col-6 text-right">
-            <img src="./images/site/檢舉.png" height="40px" class="" alt="檢舉" />
-          </div>
-<!--留言功能-->
-          <div class="media ml-3 mt-4">
-            <img src="./images/site/大頭貼.png" width="60px" class="my-1" alt="帳戶圖片"/>
+
+          <!--留言功能-->
+          <div class="media m-3 mt-4">
+            <img src="./images/site/大頭貼.png" width="60px" class="my-1" alt="帳戶圖片" />
             <div class="media-body ml-2">
               <p class="mt-0 mb-1">使用者名稱</p>
-              <form method="post" action="save.php" enctype="multipart/form-data" >
+              <form method="post" action="save.php" enctype="multipart/form-data">
                 <input type="hidden" name="ID" />
                 <input type="hidden" name="articleID" />
                 <input type="hidden" name="authorID" />
@@ -72,52 +81,18 @@
               </form>
             </div>
           </div>
-<!---->
-          <div>
-            <?php require("reply.php") ?>
-          </div>
-
         </div>
+
+        <!---->
+        <div>
+          <?php require("切版_reply.php") ?>
+        </div>
+
       </div>
     </div>
+  </div>
   </div>
   <?php require('js.php') ?>
 </body>
 
 </html>
-
-<!--
-<div>
-  <button><img src="" alt="返回" /></button>
-
-  <div>
-
-
-    <h2>Title</h2>
-    <p>ContentContentContentContentContent</p>
-
-    <span>標籤一</span>
-    <span>標籤二</span>
-    <img src="" onclick="" alt="按讚" />
-    <span>12</span>
-    <img src="" onclick="" alt="評論" />
-    <span>63</span>
-    <img src="" onclick="" alt="收藏文章" />
-    <span>2 hours ago</span>
-    <button><img src="" alt="檢舉" /></button>
-
-    <span><img src="" alt="帳戶圖片" />name</span>
-    <form method="post" action="save.php" enctype="multipart/form-data">
-      <input type="hidden" name="ID" />
-      <input type="hidden" name="articleID" />
-      <input type="hidden" name="authorID" />
-      <label>留言：</label>
-      <input type="text" name="content" />
-      <input type="submit" value="" />
-    </form>
-  </div>
-
-  <div>
-    
-    <div>
-    </div>
