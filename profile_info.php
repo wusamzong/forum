@@ -22,14 +22,24 @@
 
 	<img src="<?php echo "images/".$photo; ?>" alt="個人照片"/>
 	<form name="info" onsubmit="return validateForm()" action="profile_info_update.php" method="POST" enctype="multipart/form-data">
-		<input type="file" name="photo" value="上傳新頭貼" accept="image/*"/>
+		<label>
+			<input type="file" name="photo" accept="image/*"/>選擇新頭貼
+		</label>
+		<input type="submit" value="上傳新頭貼"/>
+		<!-- 上傳按鈕的製作方法 -->
+		<!-- https://www.wfublog.com/2017/10/input-type-file-upload-css-skill.html -->
 		
 		<p>真實姓名：<span><?php echo $realName; ?></span></p>
 		<p>
 			<label for="nickname">暱稱：</label>
 			<span><?php echo $nickname; ?></span>
-			<input type="text" name="nickname"/>
-			<input type="submit" value=""/>
+			<input type="text" name="nickname" value="<?php echo $nickname; ?>"/>
+			<button onclick="edit()"><img src="" alt="編輯"/></button>
+			<button onclick="cancel()"><img src="" alt="取消"/></button>
+			<label>
+				<input type="submit" value="nickname"/>送出
+				<!-- <img src="images/site/default_photo.png" alt="送出"/> -->
+			</label>
 		</p>
 
 		<p>
@@ -52,5 +62,17 @@
 			<input type="password" name="password"/>
 			<input type="submit" value=""/>
 		</p>
+
+		<style>
+			/* input { */
+				/* display: none; */
+			/* } */
+		</style>
+		<script>
+			// function edit(name) {
+			// 	document.forms["info"][name].display="none";
+			// }
+			// https://www.itread01.com/content/1545047526.html
+		</script>
 	</form>
 </div>

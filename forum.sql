@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-21 09:14:29
+-- 產生時間： 2020-07-22 08:46:07
 -- 伺服器版本： 10.4.13-MariaDB
 -- PHP 版本： 7.4.7
 
@@ -62,8 +62,19 @@ CREATE TABLE `article` (
   `title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `content` varchar(5000) COLLATE utf8_unicode_ci NOT NULL,
   `tagIDs` text COLLATE utf8_unicode_ci NOT NULL,
+  `postTime` datetime NOT NULL,
   `goodPoint` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `article`
+--
+
+INSERT INTO `article` (`ID`, `authorID`, `hideName`, `boardID`, `title`, `content`, `tagIDs`, `postTime`, `goodPoint`) VALUES
+(1, 'ppQb8IbJ5t', 1, 4, '標題', '內容文字內容文字內容文字內容文字內容文字', '1', '2020-07-22 12:53:56', 0),
+(2, 'ppQb8IbJ5t', 0, 1, '標題', '內容文字內容文字內容文字內容文字內容文字', '2', '2020-07-22 12:54:40', 0),
+(3, 'ppQb8IbJ5t', 1, 3, '標題', '內容文字內容文字內容文字內容文字內容文字', '1 ', '2020-07-22 13:39:11', 0),
+(4, 'ppQb8IbJ5t', 1, 2, '標題', '內容文字內容文字內容文字內容文字', '2 3 ', '2020-07-22 13:40:17', 0);
 
 -- --------------------------------------------------------
 
@@ -94,10 +105,10 @@ INSERT INTO `board` (`ID`, `name`, `intro`, `picture`, `moderatorList`, `boardRu
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `followingusers`
+-- 資料表結構 `followinguser`
 --
 
-CREATE TABLE `followingusers` (
+CREATE TABLE `followinguser` (
   `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `followUserID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -105,10 +116,10 @@ CREATE TABLE `followingusers` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `keptarticles`
+-- 資料表結構 `keptarticle`
 --
 
-CREATE TABLE `keptarticles` (
+CREATE TABLE `keptarticle` (
   `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `articleID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -116,14 +127,23 @@ CREATE TABLE `keptarticles` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `postedtags`
+-- 資料表結構 `postedtag`
 --
 
-CREATE TABLE `postedtags` (
+CREATE TABLE `postedtag` (
   `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `postedTagID` int(10) NOT NULL,
   `num` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `postedtag`
+--
+
+INSERT INTO `postedtag` (`userName`, `postedTagID`, `num`) VALUES
+('ppQb8IbJ5t', 1, 2),
+('ppQb8IbJ5t', 2, 2),
+('ppQb8IbJ5t', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -179,20 +199,20 @@ INSERT INTO `tag` (`ID`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `viewedtags`
+-- 資料表結構 `viewedtag`
 --
 
-CREATE TABLE `viewedtags` (
+CREATE TABLE `viewedtag` (
   `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `viewedTagID` int(10) NOT NULL,
   `num` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- 傾印資料表的資料 `viewedtags`
+-- 傾印資料表的資料 `viewedtag`
 --
 
-INSERT INTO `viewedtags` (`userName`, `viewedTagID`, `num`) VALUES
+INSERT INTO `viewedtag` (`userName`, `viewedTagID`, `num`) VALUES
 ('ppQb8IbJ5t', 1, 10),
 ('ppQb8IbJ5t', 2, 10),
 ('ppQb8IbJ5t', 3, 0),
@@ -246,7 +266,7 @@ ALTER TABLE `account`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `board`

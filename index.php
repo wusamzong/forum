@@ -19,6 +19,9 @@
 
 <?php require("_nav.php"); ?>
 
+<!-- 無限捲軸的製作方法 -->
+<!-- https://ithelp.ithome.com.tw/articles/10226878 -->
+<!-- https://shubo.io/intersection-observer-api/ -->
 <?php require("latestArticles.php"); ?>
             </div>
 
