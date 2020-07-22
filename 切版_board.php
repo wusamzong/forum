@@ -11,7 +11,7 @@
   <div class="container-md" style="margin: 0 10%;">
     <div class="row">
       <div class="col-12">
-        <?php require("切版_header.php"); ?>
+        <?php require("切版_header,登入前.php"); ?>
       </div>
       <div class="col-3">
         <?php require("切版_nav.php"); ?>

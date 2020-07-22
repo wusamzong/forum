@@ -1,5 +1,5 @@
 <article onclick="">
-    <div class="row shadow m-1 p-5 border rounded">
+    <div class="row shadow m-1 p-5 border rounded" id="app">
         <div class="col-12">
             <h3>title</h3>
         </div>
@@ -35,4 +35,5 @@
         </div>
 
     </div>
+
 </article>
