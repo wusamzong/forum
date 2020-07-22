@@ -22,11 +22,6 @@
             echo '<span>'.$row["nickname"].'</span>';
             echo '<img src="" alt="下拉選單"/>';
         }
-        
-        // 下拉選單 登出
-        // session_unset();
-        // session_destroy();
-        // header("refresh:1, url=index.php");
     }
     ?>
 </header>
