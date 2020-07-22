@@ -21,7 +21,7 @@
                 <div class="float-right"><a href="index.php" class="text-right" style="font-size: 25px;">首頁</a></div><br>
 
                 <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
-                    <!-- 輸入基本資料
+                    <!--輸入基本資料-->
                     <div class="hidden mt-5 d-flex align-items-center flex-column">
                         <h1 class="display-2 text-primary">註冊</h1>
                         <input type="text" name="realName" placeholder="真實姓名" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
@@ -35,7 +35,8 @@
                         <p>您已經註冊了嗎？<a href="signin.php">現在登入</a></p>
                         <button class="btn btn-primary">下一步</button>
                     </div>
-                    -->
+                    
+                    <!--輸入標籤-->
                     <div>
                         <a href="#"><img src="./images/site/上一頁.png" height="60px" alt=""> </a>
                         <div class="mt-1 d-flex align-items-center flex-column">
@@ -50,27 +51,34 @@
                                             echo '<span class="badge badge-primary p-2 mt-3 m-1" id="' . $row['ID'] . '" onclick="deleteTag(' . "'" . $row["ID"] . "'" . ')">' . $row['name'] . '</span>';
                                         } ?>
                                         <!-- "X"用偽元素::after製作 -->
-                                        <span>至少選三項</span>
+                                        <span class="float-right">至少選三項</span>
                                     </div>
                                 </div>
-                                <div class="row m-auto border" style="width: 580px; height: 350px; background:white;">
+                                <div class="m-auto border" style="width: 580px; height: 350px; background:white; overflow-x: auto;">
+                                    <p id="rowCount" style="display: none;"><?php echo $sql->rowCount(); ?></p>
                                     <?php
+                                    
                                     $sql = $pdo->prepare('SELECT * FROM tag');
                                     $sql->execute();
                                     foreach ($sql->fetchAll() as $row) {
-                                        echo '<div class="col-12 m-1 border-bottom" style="font-size:24px;" onclick="chooseTag(' . "'" . $row["ID"] . "'" . ')">#' . $row['name'] . '</div>';
+                                        echo '<div class="m-1 pl-2 border-bottom" style="font-size:24px;" onclick="chooseTag(' . "'" . $row["ID"] . "'" . ')">#' . $row['name'] . '</div>';
                                     }
                                     ?>
-                                    <div class="col">daf;ldjaf;</div>
-                                    <div class="col">daf;ldjaf;</div>
-                                    <div class="col">daf;ldjaf;</div>
-                                    <div class="col">daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    
                                     <p id="tagError"></p>
                                     <input type="hidden" id="tagCount" name="tagCount"/>
                                 </div>
                             </div>
                             <input class="btn btn-primary mt-2" type="submit" value="註冊" />
                         </div>
+                        
 
 
 
@@ -152,12 +160,7 @@
             </form>
         </div>
     </div>
-
-
-
-
     <?php require('_js.php') ?>
-
 </body>
 
 </html>

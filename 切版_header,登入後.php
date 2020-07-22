@@ -15,7 +15,7 @@
     </div>
     <!-- 新增文章 -->
     <div class="p-2 bd-highlight">
-      <a href="#"><img src="./images/site/筆.png" height="30px" alt=""></a>
+      <a href="切版_article_write.php"><img src="./images/site/筆.png" height="30px" alt=""></a>
     </div>
     <!-- 下拉選單 -->
     <div class="p-2 bd-highlight d-flex align-items-center">
