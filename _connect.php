@@ -1,6 +1,6 @@
 <?php
-$userName = "root";
-$password = "";
+$userName = "XUANYING";
+$password = "s9841023";
 
 try {
 	// 建立連線

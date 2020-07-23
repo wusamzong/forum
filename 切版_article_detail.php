@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文章內容</title>
-  <?php require('css.php') ?>
+  <?php require('_css.php') ?>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <?php require("_header.php"); ?>
       </div>
       <div class="col-3">
-        <?php require("_nav.php"); ?>
+        <?php require("切版_nav.php"); ?>
       </div>
       <div class="col-9 mt-4">
         <div class="border bg-white shadow rounded p-3">

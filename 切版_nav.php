@@ -3,7 +3,7 @@
 
     <a class="list-group-item list-group-item-action" href="https://expert.med-net.com/inde">病痛Q&A</a>
     <?php
-    require("connect.php");
+    require("_connect.php");
     $sql = $pdo->prepare('SELECT ID,name FROM board');
     $sql->execute();
     foreach ($sql->fetchAll() as $row) {
