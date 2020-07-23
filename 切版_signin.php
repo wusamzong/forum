@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html class="m-0 p-0">
 <head>
   <title>登入</title>
   <meta charset="utf-8">
   <?php require('_css.php') ?>
 </head>
 
-<body style="height:100vh; overflow:hidden;">
-  <div class="row m-5">
-    <div class="col-6 d-flex flex-column align-items-center border-right">
-      <img src="./images/site/Logo.png" width="250px" alt="醫聯網" />
-      <img src="./images/site/login.png" width="750px" alt="圖片" />
-      <p>醫聯網的簡介</p>
+<body style="height:100vh; overflow:hidden;" class="p-0 m-0">
+  <div class="row">
+    <div class="col-xl-6 d-flex flex-column align-items-center border-right ">
+      <img class="d-none d-lg-block m-5" src="./images/site/Logo.png" width="250px" alt="醫聯網" />
+      <img class="d-none d-lg-block" src="./images/site/login.png" width="750px" alt="圖片" />
+      <p class="d-none d-xl-block">醫聯網的簡介</p>
     </div>
-    <div class="col-6 p-5 mt-5">
+    <div class="col-12 d-xl-none m-0 p-0">
+      <?php require('切版_header,登入前.php')?>
+    </div>
+    <div class="col-xl-6 p-5 mt-5">
       <div class="float-right mt-5"><a href="index.php" class="text-right" style="font-size: 25px;">首頁</a></div><br>
         <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signin" onsubmit="return validateForm()" action="signin_check.php" method="POST" enctype="multipart/form-data">
           <h1 class="display-2 text-primary mt-5">登入</h1>

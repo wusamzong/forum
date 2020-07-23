@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文章內容</title>
-  <?php require('css.php') ?>
+  <?php require('_css.php') ?>
 </head>
 
 <body>
   <div class="container-md" style="margin: 0 10%;">
     <div class="row">
       <div class="col-12">
-        <?php require("_header.php"); ?>
+        <?php require("切版_header,登入後.php"); ?>
       </div>
       <div class="col-3">
-        <?php require("_nav.php"); ?>
+        <?php require("切版_nav.php"); ?>
       </div>
       <div class="col-9 mt-4">
         <div class="border bg-white shadow rounded p-3">
@@ -92,7 +92,7 @@
     </div>
   </div>
   </div>
-  <?php require('js.php') ?>
+  <?php require('_js.php') ?>
 </body>
 
 </html>

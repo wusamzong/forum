@@ -6,4 +6,15 @@
     overflow: hidden;
 
   }
+
+  @media screen and (max-width: 992px){
+    .displayNone{
+      display: none;
+    }
+  }
+  @media screen and (min-width: 769px){
+    .displayNone{
+    
+    }
+  }
 </style>

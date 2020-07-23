@@ -11,13 +11,13 @@
 
     <div class="container-lg" id="app">
         <div class="row">
-            <div class="col-6 mt-5 d-flex flex-column align-items-center border-right">
+            <div class="col-xl-6 col-lg-12 mt-5 d-flex flex-column align-items-center border-right dispalyNone">
                 <img src="./images/site/Logo.png" width="250px" alt="醫聯網" />
                 <img src="./images/site/login.png" width="750px" alt="圖片" />
                 <p>醫聯網的簡介</p>
             </div>
 
-            <div class="col-6 p-5">
+            <div class="col-xl-6 col-lg-12 p-5">
                 <div class="float-right"><a href="切版_index.php" class="text-right" style="font-size: 25px;">首頁</a></div><br>
 
                 <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
