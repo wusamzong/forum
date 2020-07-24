@@ -8,13 +8,13 @@
   }
 
   @media screen and (max-width: 992px){
-    .displayNone{
-      display: none;
+    .bodySpace{
+      margin: 0 10%;
     }
   }
   @media screen and (min-width: 769px){
-    .displayNone{
-    
+    .bodySpace{
+      margin: 0;
     }
   }
 </style>

@@ -11,10 +11,14 @@
 
     <div class="container-lg" id="app">
         <div class="row">
-            <div class="col-xl-6 col-lg-12 mt-5 d-flex flex-column align-items-center border-right dispalyNone">
-                <img src="./images/site/Logo.png" width="250px" alt="醫聯網" />
-                <img src="./images/site/login.png" width="750px" alt="圖片" />
-                <p>醫聯網的簡介</p>
+            <div class="col-xl-6 col-lg-12 mt-0 d-flex flex-column align-items-center border-right dispalyNone">
+                <img class="d-none d-lg-block mt-5" src="./images/site/Logo.png" width="250px" alt="醫聯網" />
+                <img class="d-none d-lg-block" src="./images/site/login.png" width="750px" alt="圖片" />
+                <p class="d-none d-lg-block">醫聯網的簡介</p>
+            </div>
+
+            <div class="col-12 d-xl-none m-0 p-0 ">
+                <?php require('切版_header,登入前.php') ?>
             </div>
 
             <div class="col-xl-6 col-lg-12 p-5">
@@ -23,7 +27,7 @@
                 <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
                     <!--輸入基本資料-->
                     <div :class="{displayNone: !step}">
-                        <div class="mt-5 d-flex align-items-center flex-column" >
+                        <div class="mt-5 d-flex align-items-center flex-column">
                             <h1 class="display-2 text-primary">註冊</h1>
                             <input type="text" name="realName" placeholder="真實姓名" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
                             <p id="realNameError"></p>
@@ -166,7 +170,6 @@
     var app = new Vue({
         el: '#app',
         data: {
-
             step: true,
         },
         methods: {

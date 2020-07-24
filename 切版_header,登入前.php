@@ -1,12 +1,12 @@
 <!-- 頁首 -->
 <header>
-  <div class="d-block d-lg-none d-xl-block">
+  <div class="d-block d-xl-none">
     <div>
       <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-        <img src="./images/site/漢堡導覽列.png" alt="" height="43px;" class="p-2 ml-3">
+        <img id="hamburger-menu" src="./images/site/漢堡導覽列.png" alt="" height="43px;" class="p-2 ml-3"/>
       </nav>
       <!--按下漢堡導覽且未登入-->
-      <div class="float-left bg-white border shadow p-0" style="width: 60%; height: 100vh;">
+      <div id="side-nav" class=" float-left bg-white border shadow p-0" style="width: 75%; height: 100vh; ">
         <div class="d-flex align-items-center flex-column">
           <img class="my-3" src="./images/site/大頭貼.png" height="200px" alt="">
           <div class="m-2">
@@ -14,7 +14,7 @@
             <button class="btn btn-primary px-3" style="font-size: 24px;">註冊</button>
           </div>
         </div>
-        
+
         <div style="list-style: none; " class="list-group mt-3">
           <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">病痛Q&A</a>
           <a class="list-group-item list-group-item-action disabled pl-5 bg-light" style="font-size: 22px ;">看板總覽</a>
@@ -23,7 +23,15 @@
           <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">醫療議題</a>
           <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">飲食控制</a>
         </div>
-      </div> 
+        <div class="row m-4">
+          <div class="col-3"><a href="">關於我們</a></div>
+          <div class="col-7 "><a href="">最新消息</a></div>
+          <div class="col-3"><a href="">人才招募</a></div>
+          <div class="col-7 "><a href="">免責聲明</a></div>
+          <div class="col-3"><a href="">業務合作</a></div>
+          <div class="col-7 "><a href="">客服中心</a></div>
+        </div>
+      </div>
     </div>
   </div>
 
