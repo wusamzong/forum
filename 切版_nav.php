@@ -1,7 +1,7 @@
-<div class="list-group mt-4">
+<div class="list-group mt-4 text-center">
 
 
-    <a class="list-group-item list-group-item-action" href="https://expert.med-net.com/inde">病痛Q&A</a>
+    <a class="list-group-item list-group-item-action " href="https://expert.med-net.com/inde">病痛Q&A</a>
     <?php
     require("_connect.php");
     $sql = $pdo->prepare('SELECT ID,name FROM board');
