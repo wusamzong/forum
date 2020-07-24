@@ -7,8 +7,8 @@
 	<?php require('_css.php') ?>
 </head>
 
-<body class="container-lg" style="height:100vh; margin: 0 10%; overflow:hidden;">
-	<div class="row justify-content-center" id="app">
+<body class="bodySpace" >
+	<div class="row justify-content-center" style="height:100vh; overflow:hidden;" id="app">
 		<div class="col-12">
 			<?php require('切版_header,登入後.php') ?>
 		</div>
@@ -53,9 +53,9 @@
 					<div class="form-group" :class="{displayNone: !step}">
 						<input type="hidden" name="ID" value="" />
 						<input type="hidden" name="authorID" value="" />
-						<input class="form-control form-control-lg w-75 mt-4" type="text" placeholder="標題">
+						<input class="form-control form-control-lg mt-4" style="width: 65vw;" type="text" placeholder="標題">
 						<label for="content">文章內容</label>
-						<textarea class="form-control" id="content" style="height: 400px; width: 1080px;"></textarea>
+						<textarea class="form-control" id="content" style="height: 400px; width: 65vw;"></textarea>
 						<div class="d-flex bd-highlight mb-3">
 							<div class="mr-auto p-2 bd-highlight">
 								<img height="50px" src="./images/site/已完成.png" alt="第一步驟" />

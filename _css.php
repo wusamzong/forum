@@ -7,14 +7,12 @@
 
   }
 
-  @media screen and (max-width: 992px){
+  @media screen and (min-width: 1200px){
     .bodySpace{
-      margin: 0 10%;
+      margin: 0 7%;
+      
     }
+
   }
-  @media screen and (min-width: 769px){
-    .bodySpace{
-      margin: 0;
-    }
-  }
+
 </style>

@@ -21,7 +21,7 @@
             </p>
         </div>
         <div class="col-12 row justify-content-between">
-            <div class="col-5">
+            <div class="col-7">
                 <img src="./images/site/讚.png" height="40px" class="" alt="按讚" />
                 <span class="mr-3">12</span>
                 <img src="./images/site/對話框.png" height="40px" class="" alt="評論" />
