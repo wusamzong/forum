@@ -75,7 +75,7 @@
                 <input type="hidden" name="authorID" />
                 <div class="form-group">
                   <label>留言</label>
-                  <textarea class="form-control" id="" name="conent" style="width: 800px; height: 200px;"></textarea>
+                  <textarea class="form-control messageTextareaSize" id="" name="conent "></textarea>
                   <button type="submit" class="btn btn-primary">送出</button>
                 </div>
               </form>

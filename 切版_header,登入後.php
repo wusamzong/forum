@@ -24,7 +24,7 @@
       <div style="list-style: none; " class="list-group mt-3">
         <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">病痛Q&A</a>
         <a class="list-group-item list-group-item-action disabled pl-5 bg-light" style="font-size: 22px ;">看板總覽</a>
-        <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">醫事甘苦談</a>
+        <a href="切版_board.php" class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">醫事甘苦談</a>
         <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">健康檢查</a>
         <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">醫療議題</a>
         <a class="list-group-item list-group-item-action pl-5" style="cursor: pointer;">飲食控制</a>

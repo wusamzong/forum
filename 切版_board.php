@@ -17,8 +17,8 @@
         <?php require("切版_nav.php"); ?>
       </div>
 
-      <div class="col-xl-9 col-md-12 col-sm-12  pr-0">
-        <div class="mx-1 mt-4 row p-2 align-items-end rounded" style="width:100%; height: 200px; background-color: #4899D0;">
+      <div class="col-xl-9 col-md-12 col-sm-12 pr-0">
+        <div class="mx-1 mt-4 row p-2 align-items-end rounded boardBG">
           <div class="col">
             <p class="display-4 text-light">醫療甘苦談</p>
           </div>
