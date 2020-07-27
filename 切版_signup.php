@@ -7,7 +7,7 @@
     <?php require('_css.php') ?>
 </head>
 
-<body style="height:100vh; overflow:hidden;">
+<body class="signleScene">
 
     <div class="container-lg" id="app">
         <div class="row">
@@ -22,20 +22,20 @@
             </div>
 
             <div class="col-xl-6 col-lg-12 p-5">
-                <div class="float-right"><a href="切版_index.php" class="text-right" style="font-size: 25px;">首頁</a></div><br>
+                <div class="float-right"><a href="切版_index.php" class="text-right fs-24">首頁</a></div><br>
 
                 <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
                     <!--輸入基本資料-->
                     <div :class="{displayNone: !step}">
                         <div class="mt-5 d-flex align-items-center flex-column">
                             <h1 class="display-2 text-primary">註冊</h1>
-                            <input type="text" name="realName" placeholder="真實姓名" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
+                            <input type="text" name="realName" placeholder="真實姓名" class="form-control mt-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg signInput"  />
                             <p id="realNameError"></p>
-                            <input type="text" name="nickname" placeholder="暱稱" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
+                            <input type="text" name="nickname" placeholder="暱稱" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg signInput"  />
                             <p id="nicknameError"></p>
-                            <input type="email" name="email" placeholder="電子信箱" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
+                            <input type="email" name="email" placeholder="電子信箱" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg signInput"  />
                             <p id="emailError"></p>
-                            <input type="password" name="password" placeholder="密碼" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
+                            <input type="password" name="password" placeholder="密碼" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg signInput"  />
                             <p id="passwordError"></p>
                             <p>您已經註冊了嗎？<a href="signin.php">現在登入</a></p>
                             <p class="btn btn-primary" @click="turnStep">下一步</p>
@@ -48,8 +48,8 @@
                         <a href="#"><img @click="back" src="./images/site/上一頁.png" height="60px" alt=""> </a>
                         <div class="mt-1 d-flex align-items-center flex-column">
                             <h1 class="display-4 text-primary">選擇喜好</h1>
-                            <div class="border rounded bg-light" style="width: 600px; height:450px;">
-                                <div class="border mx-auto my-2" style="width: 580px; height: 70px; background:white;">
+                            <div class="border rounded bg-light signupTagSelectBG">
+                                <div class="border mx-auto my-2 selectedTagBGSize">
                                     <div>
                                         <?php require("_connect.php");
                                         $sql = $pdo->prepare('SELECT * FROM tag');
@@ -61,23 +61,23 @@
                                         <span class="float-right">至少選三項</span>
                                     </div>
                                 </div>
-                                <div class="m-auto border" style="width: 580px; height: 350px; background:white; overflow-x: auto;">
-                                    <p id="rowCount" style="display: none;"><?php echo $sql->rowCount(); ?></p>
+                                <div class="m-auto border SignUpTagListSize">
+                                    <p id="rowCount" class="d-none"><?php echo $sql->rowCount(); ?></p>
                                     <?php
 
                                     $sql = $pdo->prepare('SELECT * FROM tag');
                                     $sql->execute();
                                     foreach ($sql->fetchAll() as $row) {
-                                        echo '<div class="m-1 pl-2 border-bottom" style="font-size:24px;" onclick="chooseTag(' . "'" . $row["ID"] . "'" . ')">#' . $row['name'] . '</div>';
+                                        echo '<div class="m-1 pl-2 border-bottom" onclick="chooseTag(' . "'" . $row["ID"] . "'" . ')">#' . $row['name'] . '</div>';
                                     }
                                     ?>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
+                                    <div class="m-1 pl-2 border-bottom fs-24">#daf;ldjaf;</div>
 
                                     <p id="tagError"></p>
                                     <input type="hidden" id="tagCount" name="tagCount" />
@@ -187,10 +187,6 @@
         }
     })
 </script>
-<style>
-    .displayNone {
-        display: none;
-    }
-</style>
+
 
 </html>

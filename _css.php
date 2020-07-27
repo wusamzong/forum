@@ -13,7 +13,7 @@
   }
 
   /** article_write */
-  .singleScene{
+  .singleScene{ /**Signin/Signup/article_write */
     height:100vh; 
     overflow:hidden;
   } 
@@ -40,7 +40,7 @@
     list-style: none; 
     font-size: 26px;
   }
-  .displayNone {
+  .displayNone {  /** signup/article_write */
 		display: none;
 	}
 
@@ -51,7 +51,7 @@
     background-color: gray;
   }
 
-  /** header_登入前 */
+  /** header_登入前/後 */
   .hamburgerMenu{
     z-index: 3; 
     width: 75%; 
@@ -70,6 +70,33 @@
     border-radius: 50px;
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3))
   }
+  .searchInputSize{
+    width: 80%!important; 
+    height: 50px;
+  }
+  /** Sign in */
+  .signInput{
+    width: 425px; 
+    height: 60px; 
+    font-size: 28px;
+  }
+  /** Sign up */
+  .signupTagSelectBG{ /**註冊時選擇Tag的背景 */
+    width: 600px; 
+    height:450px;
+  }
+  .selectedTagBGSize{   /**註冊時，顯示已選擇的Tag的框 */
+    width: 580px; 
+    height: 70px; 
+    background:white;
+  }
+  .SignUpTagListSize{
+    width: 580px; 
+    height: 350px; 
+    background:white; 
+    overflow-x: auto;
+  }
+  
   
 
   @media screen and (min-width: 1200px){

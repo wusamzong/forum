@@ -11,7 +11,7 @@
   <div class="container-xl">
     <div class="row">
       <div class="col-12 p-0">
-        <?php require("切版_header,登入前.php"); ?>
+        <?php require("切版_header,登入後.php"); ?>
       </div>
       <div class="col-xl-3 d-none d-xl-block p-0">
         <?php require("切版_nav.php"); ?>

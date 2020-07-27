@@ -5,7 +5,7 @@
         </div>
         <div class="col-12 row justify-content-between border-bottom">
             <div class="col-8"><span>XXXXX看板</span></div>
-            <div class="col-3 text-right"><a href="">Author<img src="./images/site/大頭貼.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片"></a></div>
+            <div class="col-4 text-right"><a href="">Author<img src="./images/site/大頭貼.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片"></a></div>
         </div>
 
         <div class="col-12 articalContentPreview border-bottom text-justify">
