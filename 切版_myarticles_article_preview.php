@@ -32,7 +32,7 @@
                     <span>2 hours ago</span>
                 </div>
                 <div class="col-2 text-right">
-                    <img src="./images/site/垃圾桶.png" height="50px" class="" style="margin-left:280px;margin-top:-5px;" alt="刪除">
+                    <img src="./images/site/垃圾桶.png" height="50px" class="trashCan" alt="刪除">
                 </div>
                 <div class="col-2 text-right">
                     <img src="./images/site/編輯.png" height="35px" class="ml-2" alt="編輯">
