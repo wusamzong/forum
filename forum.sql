@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-22 08:46:07
+-- 產生時間： 2020-07-28 10:18:28
 -- 伺服器版本： 10.4.13-MariaDB
 -- PHP 版本： 7.4.7
 
@@ -46,7 +46,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID`, `userName`, `email`, `password`, `salt`, `realName`, `nickname`, `photo`, `intro`) VALUES
-(1, 'ppQb8IbJ5t', 'ming@mail.com', '4d2e0b18761d0dbd6dac9be328f9d1817a761efdb913e2a2bf2e299c5d1c0a30', 'g063nq2u', '王小明', '小明', 'site/default_photo.png', '小明的自我介紹');
+(1, 'ppQb8IbJ5t', 'ming@mail.com', '4d2e0b18761d0dbd6dac9be328f9d1817a761efdb913e2a2bf2e299c5d1c0a30', 'g063nq2u', '王小明', '小明', 'default', '小明的自我介紹');
 
 -- --------------------------------------------------------
 
@@ -71,10 +71,11 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`ID`, `authorID`, `hideName`, `boardID`, `title`, `content`, `tagIDs`, `postTime`, `goodPoint`) VALUES
-(1, 'ppQb8IbJ5t', 1, 4, '標題', '內容文字內容文字內容文字內容文字內容文字', '1', '2020-07-22 12:53:56', 0),
-(2, 'ppQb8IbJ5t', 0, 1, '標題', '內容文字內容文字內容文字內容文字內容文字', '2', '2020-07-22 12:54:40', 0),
-(3, 'ppQb8IbJ5t', 1, 3, '標題', '內容文字內容文字內容文字內容文字內容文字', '1 ', '2020-07-22 13:39:11', 0),
-(4, 'ppQb8IbJ5t', 1, 2, '標題', '內容文字內容文字內容文字內容文字', '2 3 ', '2020-07-22 13:40:17', 0);
+(1, '1', 1, 4, '標題', '有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。', '1', '2020-07-22 12:53:56', 0),
+(2, '1', 0, 1, '標題', '有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。', '2', '2020-07-22 12:54:40', 0),
+(3, '1', 1, 3, '標題', '有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。', '1 ', '2020-07-22 13:39:11', 0),
+(4, '1', 1, 2, '標題', '有關健康檢查的文章內容。有關健康檢查的文章內容。有關健康檢查的文章內容。', '2 3 ', '2020-07-22 13:40:17', 0),
+(5, '1', 0, 1, '標題', '和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。', '1 2 3 4 ', '2020-07-28 11:30:58', 0);
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,11 @@ CREATE TABLE `postedtag` (
 INSERT INTO `postedtag` (`userName`, `postedTagID`, `num`) VALUES
 ('ppQb8IbJ5t', 1, 2),
 ('ppQb8IbJ5t', 2, 2),
-('ppQb8IbJ5t', 3, 1);
+('ppQb8IbJ5t', 3, 1),
+('1', 1, 3),
+('1', 2, 1),
+('1', 3, 1),
+('1', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -156,8 +161,17 @@ CREATE TABLE `reply` (
   `articleID` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `authorID` text COLLATE utf8_unicode_ci NOT NULL,
   `content` varchar(5000) COLLATE utf8_unicode_ci NOT NULL,
+  `postTime` datetime NOT NULL,
   `goodPoint` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `reply`
+--
+
+INSERT INTO `reply` (`ID`, `articleID`, `authorID`, `content`, `postTime`, `goodPoint`) VALUES
+(1, '5', '1', '一段留言', '2020-07-28 16:08:26', 0),
+(2, '5', '1', '留言', '2020-07-28 16:12:19', 0);
 
 -- --------------------------------------------------------
 
@@ -266,7 +280,7 @@ ALTER TABLE `account`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `board`
@@ -278,7 +292,7 @@ ALTER TABLE `board`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `tag`

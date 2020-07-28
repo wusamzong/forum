@@ -8,7 +8,7 @@
 </nav>
 
 <div>
-	<div><?php require("profile_info.php"); ?></div>
+	<div><?php require("profile_editInfo.php"); ?></div>
 	<div><?php
 	require("profile_keptArticle.php"); ?></div>
 	<div><?php require("profile_writtenArticle.php"); ?></div>

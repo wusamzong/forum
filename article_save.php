@@ -2,7 +2,12 @@
 require("_connect.php");
 
 // authorID
-$authorID = $_SESSION["userName"];
+$authorID = "";
+$sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
+$sql->execute([$_SESSION["userName"]]);
+foreach ($sql->fetchAll() as $row) {
+	$authorID = $row["ID"];
+}
 // hideName
 $hideName = $_POST["hideName"];
 // boardID
@@ -52,5 +57,5 @@ for ($i=1; $i < count($postedTags); $i++) {
 	}
 }
 
-header("Location: index.php");
+header("Location: 切版_index.php");
 ?>

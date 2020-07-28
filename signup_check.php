@@ -56,7 +56,7 @@ if ($exist == true) {
 	$password = hash('sha256', $password.$salt);
 
 	// photo
-	$photo = "site/default_photo.png";
+	$photo = "default";
 	// intro
 	$intro = $nickname."的自我介紹";
 	// viewedTags
@@ -75,6 +75,6 @@ if ($exist == true) {
 	
 	// 登入
 	$_SESSION["userName"] = $userName;
-	header("Location: index.php");
+	header("Location: 切版_index.php");
 }
 ?>

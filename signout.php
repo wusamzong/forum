@@ -1,5 +1,7 @@
 <?php
-session_unset();
+session_start();
+$_SESSION = array();
+setCookie(session_name(),'',time()-3600,'/');
 session_destroy();
-header("Location: index.php");
+header("Location: 切版_index.php");
 ?>

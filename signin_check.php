@@ -23,7 +23,7 @@ if ($exist == false) {
 
 	if ($password_hashed == $row["password"]) {
 		$_SESSION["userName"] = $row["userName"];
-		header("Location: index.php");
+		header("Location: 切版_index.php");
 	} else {
 		echo "<alert>密碼錯誤</alert>";
 		header("refresh:3; url=signin.php");

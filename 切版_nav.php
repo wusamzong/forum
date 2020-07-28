@@ -1,23 +1,16 @@
 <div class="list-group mt-4">
-
-
-    <a class="list-group-item list-group-item-action" href="https://expert.med-net.com/inde">病痛Q&A</a>
+    <a class="list-group-item list-group-item-action" href="https://expert.med-net.com/index">病痛Q&A</a>
+    <form name="board" onsubmit="return validateForm()" action="切版_board.php" method="POST" enctype="multipart/form-data">
     <?php
     require("connect.php");
     $sql = $pdo->prepare('SELECT ID,name FROM board');
     $sql->execute();
     foreach ($sql->fetchAll() as $row) {
-        echo '<a class="list-group-item list-group-item-action" href="board.php" onclick="chooseBoard(' . "'" . $row["ID"] . "'" . ')">' . $row["name"] . '</a>';
+        // echo '<a class="list-group-item list-group-item-action" href="切版_board.php" onclick="chooseBoard(' . "'" . $row["ID"] . "'" . ')">' . $row["name"] . '</a>';
+        echo '<input class="list-group-item list-group-item-action" type="submit" name="boardName" value="' . $row["name"] . '"/>';
     }
     ?>
-    </ul>
-
-
-    <script>
-        function chooseBoard(ID) {
-            sessionStorage.setItem("board", ID);
-        }
-    </script>
+    </form>
 </div>
 
 <!-- 推薦文章 -->
