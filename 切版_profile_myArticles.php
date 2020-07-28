@@ -10,11 +10,11 @@
 
 <body>
 <div class="container-md bodyMargin" >
-		<div class="row">
+<div class="row">
 			<div class="col-12">
 				<?php require("切版_header,登入後.php"); ?>
 			</div>
-			<div class="col-3 leftNavigationBar">
+			<div class="col-xl-3 leftNavigationBar d-none d-xl-block">
 				<div class="d-flex align-items-center flex-column bd-highlight mb-3 leftNavigationFlex">
 					<img src="./images/site/大頭貼2.png" height="200px" alt="個人照片" class="mt-5 ml-4" />
 					<h1 class="text-light mt-3 font-weight-bold">暱稱</h1>

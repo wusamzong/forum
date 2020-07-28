@@ -10,6 +10,30 @@
 
   }
 
+  /** header */
+  .hamburgerMenu{
+    z-index: 3; 
+    width: 75%; 
+    height: 100vh; 
+    position:absolute;
+  }.cursorPointer{
+    cursor: pointer;
+  }
+  .fs-24{
+    font-size: 24px;
+  }
+  .articleWriteButton{
+    z-index:2 ;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    border-radius: 50px;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3))
+  }
+  .searchInputSize{
+    width: 80%!important; 
+    height: 50px;
+  }
   /** profile_mine */
 
   /**相同的部分*/
@@ -54,11 +78,11 @@
   }
 
   .editInfoContentPadding {
-    padding-left: 250px;
+    padding-left: 6vw;
   }
 
   .uploadHeaderButton {
-    margin-left: 100px;
+    margin-left: 10vw;
     background: #1F81C4;
     border: #1F81C4;
   }
@@ -154,5 +178,9 @@
   .otherSelfIntroduction{
     color:#FFFFFF;
 }
-
+@media (max-width: 1200px) {
+  .bodyMargin{
+    margin: 0;
+  }
+}
 </style>
