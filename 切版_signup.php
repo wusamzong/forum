@@ -33,7 +33,7 @@
                             <p id="emailError"></p>
                             <input type="password" name="password" placeholder="密碼" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" style="width: 425px; height: 60px; font-size: 28px;" />
                             <p id="passwordError"></p>
-                            <p>您已經註冊了嗎？<a href="signin.php">現在登入</a></p>
+                            <p>您已經註冊了嗎？<a href="切版_signin.php">現在登入</a></p>
                             <p class="btn btn-primary" @click="turnStep">下一步</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                         $sql = $pdo->prepare('SELECT * FROM tag');
                                         $sql->execute();
                                         foreach ($sql->fetchAll() as $row) {
-                                            echo '<span class="badge badge-primary p-2 mt-3 m-1" id="' . $row['ID'] . '" onclick="deleteTag(' . "'" . $row["ID"] . "'" . ')">' . $row['name'] . '</span>';
+                                            echo '<span style="display: none" class="badge badge-primary p-2 mt-3 m-1" id="' . $row['ID'] . '" onclick="deleteTag(' . "'" . $row["ID"] . "'" . ')">' . $row['name'] . ' X</span>';
                                         } ?>
                                         <!-- "X"用偽元素::after製作 -->
                                         <span class="float-right">至少選三項</span>
@@ -67,14 +67,6 @@
                                         echo '<div class="m-1 pl-2 border-bottom" style="font-size:24px;" onclick="chooseTag(' . "'" . $row["ID"] . "'" . ')">#' . $row['name'] . '</div>';
                                     }
                                     ?>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-                                    <div class="m-1 pl-2 border-bottom" style="font-size:24px;">#daf;ldjaf;</div>
-
                                     <p id="tagError"></p>
                                     <input type="hidden" id="tagCount" name="tagCount" />
                                 </div>

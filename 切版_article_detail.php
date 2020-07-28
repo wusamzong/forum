@@ -73,8 +73,7 @@ foreach ($sql->fetchAll() as $row) {
       $myPhoto = $row["photo"];
     }
   }
-}
-?>
+} ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -126,7 +125,7 @@ foreach ($sql->fetchAll() as $row) {
               </div>
             </div>
             <div class="col-6 text-right">
-              <span onclick=”history.back();location.reload()”>
+              <span  onclick="history.back();location.reload()">
               <img src="./images/site/關閉.png" height="60px" alt="關閉文章"></span>
             </div>
           </div>
@@ -182,7 +181,7 @@ foreach ($sql->fetchAll() as $row) {
         <!--列出所有留言-->
         <div>
           <?php
-          $sql = $pdo->prepare('SELECT * FROM reply WHERE articleID=? ORDER BY postTime DESC');
+          $sql = $pdo->prepare('SELECT * FROM reply WHERE articleID=? ORDER BY postTime ASC');
           $sql->execute([$_GET["ID"]]);
           require("切版_reply.php") ?>
         </div>

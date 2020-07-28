@@ -17,7 +17,7 @@ foreach ($sql->fetchAll() as $row) {
 // 如果此電子信箱已存在，告知使用者
 if ($exist == true) {
 	echo "<alert>此帳號已有人註冊</alert>";
-	header("refresh:3; url=signup.php");
+	header("refresh:3; url=切版_signup.php");
 } else {
 	// 如果此電子信箱不存在，建立帳號資料
 
@@ -69,7 +69,7 @@ if ($exist == true) {
 
 	// 寫入瀏覽標籤資料表
 	for ($i=1; $i < count($countList); $i++) {
-		$sql = $pdo->prepare('INSERT INTO viewedtags (userName, viewedTagID, num) VALUES (?,?,?)');
+		$sql = $pdo->prepare('INSERT INTO viewedtag (userName, viewedTagID, num) VALUES (?,?,?)');
 		$sql->execute([$userName, $i, $countList[$i]]);
 	}
 	

@@ -21,7 +21,7 @@
           <p id="emailError"></p>
           <input type="password" name="password" class="form-control mt-3" placeholder="密碼：" style="width: 425px; height: 60px; font-size: 28px;"/>
           <p id="passwordError"></p>
-          <span>您尚未註冊嗎？<a href="signup.php">現在註冊</a></span>
+          <span>您尚未註冊嗎？<a href="切版_signup.php">現在註冊</a></span>
           
           <input class="btn btn-primary m-4 px-3 py-2" style="font-size: 25px;" type="submit" name="login" value="登入"/>
         </form>

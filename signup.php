@@ -59,7 +59,7 @@
             </div>
         </div>
         <input type="submit" value="註冊"/>
-
+        
         <script>
             // 標籤處理
             // 標籤的個數，所有標籤的瀏覽次數，初始化

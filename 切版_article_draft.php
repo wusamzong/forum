@@ -6,8 +6,8 @@
         <div class="col-12 row justify-content-between border-bottom">
             <div class="col-3"><span>看板名稱</span></div>
             <div class="col-3 text-right">
-            <a href="">Author
-            <img src="./images/site/大頭貼.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">
+            <a href="">作者
+            <img src="./images/site/大頭貼_藍底.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">
             </a></div>
         </div>
 

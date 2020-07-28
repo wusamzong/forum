@@ -6,8 +6,7 @@
     $sql = $pdo->prepare('SELECT ID,name FROM board');
     $sql->execute();
     foreach ($sql->fetchAll() as $row) {
-        // echo '<a class="list-group-item list-group-item-action" href="切版_board.php" onclick="chooseBoard(' . "'" . $row["ID"] . "'" . ')">' . $row["name"] . '</a>';
-        echo '<input class="list-group-item list-group-item-action" type="submit" name="boardName" value="' . $row["name"] . '"/>';
+        echo '<a href="切版_board.php?ID='.$row["ID"].'" class="list-group-item list-group-item-action">' . $row["name"] . '</a>';
     }
     ?>
     </form>

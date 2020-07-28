@@ -1,5 +1,5 @@
-<?php
-foreach ($sql->fetchAll() as $row) {
+<?php foreach ($sql->fetchAll() as $row) {
+    // 收集資料
     $ID = $row["ID"];
     $title = $row["title"];
     $boardID = $row["boardID"];
@@ -43,6 +43,15 @@ foreach ($sql->fetchAll() as $row) {
     $sql->execute([$ID]);
     $replyCount = $sql->rowCount();
 
+    // 查詢自己的帳號的ID
+    $myID = "";
+    if (isset($_SESSION["userName"])) {
+        $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
+        $sql->execute([$_SESSION["userName"]]);
+        foreach ($sql->fetchAll() as $row) {
+            $myID = $row["ID"]; }
+    }
+
     // 輸出文章
     echo '<article><div class="row shadow m-1 p-5 border rounded" id="app" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'">'."\n";
         // 標題、看板名稱、作者名字、作者照片
@@ -54,14 +63,17 @@ foreach ($sql->fetchAll() as $row) {
                 echo '<span>'.$authorName;
                 echo '<img src="images/site/大頭貼_藍底.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
                 echo '</span></div>'."\n";
-            } else if ($authorPhoto == "default") {
-                echo '<a href="">'.$authorName;
-                echo '<img src="images/site/大頭貼_藍底.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
-                echo '</a></div>'."\n";
             } else {
-                echo '<a href="">'.$authorName;
-                echo '<img src="./images/'.$authorPhoto.'" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
-                echo '</a></div>'."\n";
+                if ($myID != "" && $myID == $authorID) {
+                    echo '<a href="切版_profile_mine.php">'.$authorName;
+                } else {
+                    echo '<a href="切版_profile_others.php?ID='.$authorID.'">'.$authorName;
+                }
+                if ($authorPhoto == "default") {
+                    echo '<img src="images/site/大頭貼_藍底.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
+                } else {
+                    echo '<img src="./images/'.$authorPhoto.'" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
+                } echo '</a></div>'."\n";
             }
         echo '</div>'."\n";
 
