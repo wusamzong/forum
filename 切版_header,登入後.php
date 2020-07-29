@@ -26,8 +26,10 @@
           } else {
             echo '<img class="p-2" src="images/' . $row["photo"] . '" height="75px" alt="帳戶圖片">';
           }
+          echo '<div class="media-body">';
           echo '<h2>' . $row["nickname"] . '</h2>';
           echo '<h6>' . $row["email"] . '</h6>';
+          echo '</div>';
         } ?>
       </div>
 

@@ -12,9 +12,9 @@
     <div class="container-lg" id="app">
         <div class="row">
             <div class=" col-xl-6 mt-0 dis-flex flex-column align-items-center border-right dispalyNone">
-                <img class="d-none d-lg-block mt-5" src="./images/site/Logo.png" width="250px" alt="醫聯網" />
-                <img class="d-none d-lg-block" src="./images/site/login.png" width="750px" alt="圖片" />
-                <p class="d-none d-lg-block">醫聯網的簡介</p>
+                <img class="d-none d-xl-block mt-5" src="./images/site/Logo.png" width="250px" alt="醫聯網" />
+                <img class="d-none d-xl-block" src="./images/site/login.png" width="750px" alt="圖片" />
+                <p class="d-none d-xl-block">醫聯網的簡介</p>
             </div>
 
             <div class="col-12 d-xl-none m-0 p-0 ">

@@ -9,9 +9,9 @@
 </head>
 
 
-<body class="bodySpace" >
+<body class="bodySpace">
 	<div class="row justify-content-center singleScene" id="app">
-		<div class="col-12">
+		<div class="col-xl-12">
 			<?php require('切版_header,登入後.php') ?>
 		</div>
 		<div class="col-11 shadow border rounded">
@@ -21,7 +21,6 @@
 				<div class="row mt-4 ml-4 mr-4" :class="{displayNone: !step}">
 					<!--選擇發文看板/匿名與否/檢舉icon-->
 					<div class="media col-6">
-
 						<?php require("_connect.php");
 						// 照片和暱稱
 						$sql = $pdo->prepare('SELECT nickname,photo FROM account WHERE userName=?');
@@ -38,8 +37,8 @@
 						} else {
 							echo '<img src="images/' . $row["photo"] . '" width="60px" class="mr-1" alt="帳戶圖片" />';
 						} ?>
-
 						<div class="media-body">
+
 
 							<div class="dropdown">
 								<a class="dropdown-toggle m-2 fs-22" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,8 +75,8 @@
 					</div>
 					<!--文章的標題/內文-->
 					<div class="form-group" :class="{displayNone: !step}">
-						<input type="text" name="title" placeholder="標題" maxlength="20" class="form-control form-control-lg w-75 mt-4">
-						<textarea name="content" placeholder="文章內容" minlength="15" maxlength="5000" class="form-control" id="content articleContentSize"></textarea>
+						<input type="text" name="title" placeholder="標題" maxlength="20" class="form-control titleInputWidth mt-4 mb-2">
+						<textarea name="content" placeholder="文章內容" class="form-control articleContentSize" id="content "></textarea>
 						<span id="error1"></span>
 						<div class="d-flex bd-highlight mb-3">
 							<div class="p-2 bd-highlight">
