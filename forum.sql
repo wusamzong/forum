@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-28 10:18:28
+-- 產生時間： 2020-07-29 11:52:31
 -- 伺服器版本： 10.4.13-MariaDB
 -- PHP 版本： 7.4.7
 
@@ -46,7 +46,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID`, `userName`, `email`, `password`, `salt`, `realName`, `nickname`, `photo`, `intro`) VALUES
-(1, 'ppQb8IbJ5t', 'ming@mail.com', '4d2e0b18761d0dbd6dac9be328f9d1817a761efdb913e2a2bf2e299c5d1c0a30', 'g063nq2u', '王小明', '小明', 'default', '小明的自我介紹');
+(1, 'ppQb8IbJ5t', 'ming@mail.com', '4d2e0b18761d0dbd6dac9be328f9d1817a761efdb913e2a2bf2e299c5d1c0a30', 'g063nq2u', '王小明', '小明', 'default', '小明的自我介紹'),
+(2, 'LT8EOOIOGv', 'hua@mail.com', 'e383e349b879425805dc0113a81b97e67a61e3a8944a3c9a99d7341164a3aedf', 'WZplqz9L', '林小華', '小華', 'default', '小華的自我介紹');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `article` (`ID`, `authorID`, `hideName`, `boardID`, `title`, `conten
 (2, '1', 0, 1, '標題', '有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。', '2', '2020-07-22 12:54:40', 0),
 (3, '1', 1, 3, '標題', '有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。', '1 ', '2020-07-22 13:39:11', 0),
 (4, '1', 1, 2, '標題', '有關健康檢查的文章內容。有關健康檢查的文章內容。有關健康檢查的文章內容。', '2 3 ', '2020-07-22 13:40:17', 0),
-(5, '1', 0, 1, '標題', '和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。', '1 2 3 4 ', '2020-07-28 11:30:58', 0);
+(5, '1', 0, 1, '標題', '和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。', '1 2 3 4 ', '2020-07-28 11:30:58', 0),
+(6, '2', 0, 4, 'Miss Energy', 'Miss Energy 的料理很清淡', '1 2 ', '2020-07-28 18:24:26', 0);
 
 -- --------------------------------------------------------
 
@@ -110,9 +112,16 @@ INSERT INTO `board` (`ID`, `name`, `intro`, `picture`, `moderatorList`, `boardRu
 --
 
 CREATE TABLE `followinguser` (
-  `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `userID` int(10) NOT NULL,
   `followUserID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `followinguser`
+--
+
+INSERT INTO `followinguser` (`userID`, `followUserID`) VALUES
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -121,9 +130,16 @@ CREATE TABLE `followinguser` (
 --
 
 CREATE TABLE `keptarticle` (
-  `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `userID` int(10) NOT NULL,
   `articleID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 傾印資料表的資料 `keptarticle`
+--
+
+INSERT INTO `keptarticle` (`userID`, `articleID`) VALUES
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +164,9 @@ INSERT INTO `postedtag` (`userName`, `postedTagID`, `num`) VALUES
 ('1', 1, 3),
 ('1', 2, 1),
 ('1', 3, 1),
-('1', 4, 1);
+('1', 4, 1),
+('2', 1, 1),
+('2', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +235,7 @@ INSERT INTO `tag` (`ID`, `name`) VALUES
 --
 
 CREATE TABLE `viewedtag` (
-  `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `userID` int(10) NOT NULL,
   `viewedTagID` int(10) NOT NULL,
   `num` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -226,11 +244,11 @@ CREATE TABLE `viewedtag` (
 -- 傾印資料表的資料 `viewedtag`
 --
 
-INSERT INTO `viewedtag` (`userName`, `viewedTagID`, `num`) VALUES
-('ppQb8IbJ5t', 1, 10),
-('ppQb8IbJ5t', 2, 10),
-('ppQb8IbJ5t', 3, 0),
-('ppQb8IbJ5t', 4, 10);
+INSERT INTO `viewedtag` (`userID`, `viewedTagID`, `num`) VALUES
+(1, 1, 10),
+(1, 2, 10),
+(1, 3, 0),
+(1, 4, 10);
 
 --
 -- 已傾印資料表的索引
@@ -274,13 +292,13 @@ ALTER TABLE `tag`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `account`
 --
 ALTER TABLE `account`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `board`

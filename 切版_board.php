@@ -33,7 +33,7 @@ foreach ($sql->fetchAll() as $row) {
       </div>
 
       <div class="col-9">
-        <div class="mx-1 mt-4 row p-2 align-items-end rounded" style="width:100%; height: 200px; background-color: #4899D0; background-image="<?php echo $picture; ?>">
+        <div class="mx-1 mt-4 row p-2 align-items-end rounded" style="width:100%; height: 200px; background-color: #4899D0; background-image=images/site/"<?php echo $picture; ?>">
           <div class="col">
             <p class="display-4 text-light">
             <?php echo $boardName; ?></p>
