@@ -21,9 +21,7 @@ if ($exist == true) {
 } else {
 	// 如果此電子信箱不存在，建立帳號資料
 
-	// userName
-	$userName = "";
-	// 建立隨機字串
+	// 產生由n個隨機字元組成的字串
 	function randomString($n) {
 		$str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$len = strlen($str)-1;
@@ -34,11 +32,13 @@ if ($exist == true) {
 		return $output;
 	}
 
-	// 檢查此帳號是否存在
+	// 產生userName，檢查此帳號是否存在
+	$userName = "";
 	do {
 		$userName = randomString(10);
+		$exist = false;
 		foreach ($sql->fetchAll() as $row) {
-			if ($_POST["email"] == $row["email"]) {
+			if ($userName == $row["userName"]) {
 				$exist = true;
 			}
 		}
@@ -67,14 +67,21 @@ if ($exist == true) {
 	$sql = $pdo->prepare('INSERT INTO account (email, userName, realName, nickname, salt, password, photo, intro) VALUES (?,?,?,?,?,?,?,?)');
 	$sql->execute([$email, $userName, $realName, $nickname, $salt, $password, $photo, $intro]);
 
+	// 查詢這個帳號的ID
+	$userID = 0;
+	$sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
+    $sql->execute([$_SESSION["userName"]]);
+    foreach ($sql->fetchAll() as $row) {
+		$userID = $row["ID"];
+	}
+
 	// 寫入瀏覽標籤資料表
 	for ($i=1; $i < count($countList); $i++) {
-		$sql = $pdo->prepare('INSERT INTO viewedtag (userName, viewedTagID, num) VALUES (?,?,?)');
-		$sql->execute([$userName, $i, $countList[$i]]);
+		$sql = $pdo->prepare('INSERT INTO viewedtag (userID, viewedTagID, num) VALUES (?,?,?)');
+		$sql->execute([$userID, $i, $countList[$i]]);
 	}
 	
 	// 登入
 	$_SESSION["userName"] = $userName;
 	header("Location: 切版_index.php");
-}
-?>
+} ?>

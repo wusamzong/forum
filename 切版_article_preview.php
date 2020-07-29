@@ -43,19 +43,18 @@
     $sql->execute([$ID]);
     $replyCount = $sql->rowCount();
 
-    // 查詢自己的帳號的ID
-    $myID = "";
+    // 查詢自己的帳號的ID、是否已收藏此文章
+    $kept = 0;
     if (isset($_SESSION["userName"])) {
-        $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
-        $sql->execute([$_SESSION["userName"]]);
-        foreach ($sql->fetchAll() as $row) {
-            $myID = $row["ID"]; }
+        $sql = $pdo->prepare('SELECT * FROM keptarticle WHERE userID=? AND articleID=?');
+        $sql->execute([$myID, $ID]);
+        $kept = $sql->rowCount();
     }
 
     // 輸出文章
-    echo '<article><div class="row shadow m-1 p-5 border rounded" id="app" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'">'."\n";
+    echo '<article><div class="row shadow m-1 p-5 border rounded" id="app">'."\n";
         // 標題、看板名稱、作者名字、作者照片
-        echo '<div class="col-12"><h3>'.$title.'</h3></div>'."\n";
+        echo '<div class="col-12" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'"><h3>'.$title.'</h3></div>'."\n";
         echo '<div class="col-12 row justify-content-between border-bottom">'."\n";
             echo '<div class="col-3"><span>'.$boardName.'</span></div>';
             echo '<div class="col-3 text-right">';
@@ -78,28 +77,33 @@
         echo '</div>'."\n";
 
         // 文章內容、讚數、回覆數、發文時間
-        echo '<div class="col-12 articalContentPreview border-bottom text-justify">';
+        echo '<div class="col-12 articalContentPreview border-bottom text-justify" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'">';
             echo '<p>'.$content.'</p>';
         echo '</div>'."\n";
-        echo '<div class="col-12 row justify-content-between"><div class="col-5">'."\n";
-            echo '<img src="./images/site/讚.png" height="40px" class="" alt="按讚" />';
+        echo '<div class="col-12 row justify-content-between"><div class="col-6">'."\n";
+            echo '<img src="images/site/讚.png" height="40px" class="" alt="按讚" />';
             echo '<span class="mr-3">'.$goodPoint.'</span>'."\n";
-            echo '<img src="./images/site/對話框.png" height="40px" class="" alt="評論" />';
+            echo '<img src="images/site/對話框.png" height="40px" class="" alt="評論" />';
             echo '<span class="mr-3">'.$replyCount.'</span>'."\n";
-            echo '<img src="./images/site/書籤.png" height="30px" class="" alt="收藏文章" />';
-            echo '<span>　</span>';
+            // 只有已登入的使用者可以收藏別人的文章
+            if ($myID != "") {
+                if ($myID != $authorID) {
+                    echo '<span onclick="keepArticle('.$myID.','.$ID.')" class="mr-3">';
+                    echo '<img src="images/site/書籤';
+                    if ($kept == 1) { echo '2'; }
+                    echo '.png" height="30px" id="keep'.$ID.'" alt="收藏文章" /></span>';
+                }
+            }
             echo '<span>'.$postTime.'</span>'."\n";
         echo '</div>'."\n";
 
         // 只有自己看到自己發佈的文章時才有刪除和編輯功能
-        if (isset($myID)) {
-            if ($myID == $authorID) {
+        if ($myID == $authorID) {
         echo '<div class="col-2 text-right">';
             echo '<img src="./images/site/垃圾桶.png" height="50px" class="" alt="刪除">';
             echo '<img src="./images/site/筆.png" height="30px" class="" alt="編輯">';
         echo '</div>'."\n";
-        }}
+        }
         echo '</div>'."\n";
     echo '</div></article>'."\n";
-}
-?>
+} ?>

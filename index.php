@@ -11,20 +11,17 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-md" style="margin: 0 10%;">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">row1</div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-            <?php require("_header.php"); ?>
-
-<?php require("_nav.php"); ?>
-
-<!-- 無限捲軸的製作方法 -->
-<!-- https://ithelp.ithome.com.tw/articles/10226878 -->
-<!-- https://shubo.io/intersection-observer-api/ -->
-<?php require("latestArticles.php"); ?>
+            <div class="col-12">
+                <?php require("_header.php"); ?>
             </div>
-
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <?php require("_nav.php"); ?>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12">
+                <?php require("latestArticles.php"); ?>
+            </div>
         </div>
     </div>
 

@@ -1,8 +1,9 @@
-<div class="list-group mt-4">
-    <a class="list-group-item list-group-item-action" href="https://expert.med-net.com/index">病痛Q&A</a>
-    <form name="board" onsubmit="return validateForm()" action="切版_board.php" method="POST" enctype="multipart/form-data">
+<div class="list-group mt-4 text-center">
+
+
+    <a class="list-group-item list-group-item-action " href="https://expert.med-net.com/index">病痛Q&A</a>
     <?php
-    require("connect.php");
+    require("_connect.php");
     $sql = $pdo->prepare('SELECT ID,name FROM board');
     $sql->execute();
     foreach ($sql->fetchAll() as $row) {

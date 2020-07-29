@@ -21,25 +21,19 @@
                 <div class="d-flex align-items-center flex-column bd-highlight mb-3" style="height: 700px;">
                     <h1 class="mt-5 p-4 font-weight-bolder" style="color: #1D2D44;">已發佈的文章</h1>
 
-                    <?php // 查詢自己的帳號的ID
+                    <?php // 查詢我的ID
                     $myID = "";
-                    $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
-                    $sql->execute([$_SESSION["userName"]]);
-                    foreach ($sql->fetchAll() as $row) {
-                        $myID = $row["ID"];
+                    if (isset($_SESSION["userName"])) {
+                        $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
+                        $sql->execute([$_SESSION["userName"]]);
+                        foreach ($sql->fetchAll() as $row) {
+                            $myID = $row["ID"]; }
                     }
 
-        // 查詢看板的ID
-        // $boardID = 0;
-        // $sql = $pdo->prepare('SELECT ID FROM board WHERE name=?');
-        // $sql->execute([$_SESSION["boardName"]]);
-        // foreach ($sql->fetchAll() as $row) {
-        // $boardID = $row["ID"]; }
-                
-                    // 讀取article資料表的所有資料，範圍是我的文章
-                    $sql = $pdo->prepare('SELECT * FROM article WHERE authorID = ?');
+                    // 讀取article資料表的所有資料，範圍是我收藏的文章
+                    $sql = $pdo->prepare('SELECT * FROM article WHERE authorID=?');
                     $sql->execute([$myID]);
-                        require("切版_article_preview.php"); ?>
+                    require("切版_article_preview.php"); ?>
                 </div>
             </div>
         </div>

@@ -41,7 +41,15 @@ foreach ($sql->fetchAll() as $row) {
         </div>
         <h3 class="p-1 mx-4 my-2"><?php echo $intro; ?></h3>
 
-        <?php
+        <?php // 查詢我的ID
+        $myID = "";
+        if (isset($_SESSION["userName"])) {
+        $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
+        $sql->execute([$_SESSION["userName"]]);
+        foreach ($sql->fetchAll() as $row) {
+          $myID = $row["ID"]; }
+        }
+        
         // 讀取article資料表的所有資料，範圍是指定的看板ID
         $sql = $pdo->prepare('SELECT * FROM article WHERE boardID = ? ORDER BY postTime DESC');
         $sql->execute([$_GET["ID"]]);

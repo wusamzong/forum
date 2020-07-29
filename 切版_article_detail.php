@@ -4,6 +4,7 @@ require("_connect.php");
 $sql = $pdo->prepare('SELECT * FROM article WHERE ID=?');
 $sql->execute([$_GET["ID"]]);
 foreach ($sql->fetchAll() as $row) {
+  $ID = $row["ID"];
   $title = $row["title"];
   $boardID = $row["boardID"];
   $boardName = "";
@@ -26,9 +27,12 @@ foreach ($sql->fetchAll() as $row) {
   $currentTime = date_format(date_create(),"Y/m/d H:i:s");
   $passedTime = "";
   // 判斷現在時間和發文時間 相差幾年 或幾月 或幾日 或幾時 或幾分 需要寫很多程式碼 所以先跳過
+
   $myID = "";
   $myNickname = "";
   $myPhoto = "";
+  $kept = 0;
+  $follow = 0;
 
   // 看板名稱
   $sql = $pdo->prepare('SELECT name FROM board WHERE ID=?');
@@ -63,8 +67,8 @@ foreach ($sql->fetchAll() as $row) {
   $replyCount = $sql->rowCount();
   foreach ($sql->fetchAll() as $row) {}
 
-  // 我的資料
   if (isset($_SESSION["userName"])) {
+    // 查詢我的資料
     $sql = $pdo->prepare('SELECT ID, nickname, photo FROM account WHERE userName=?');
     $sql->execute([$_SESSION["userName"]]);
     foreach ($sql->fetchAll() as $row) {
@@ -72,6 +76,30 @@ foreach ($sql->fetchAll() as $row) {
       $myNickname = $row["nickname"];
       $myPhoto = $row["photo"];
     }
+
+    // 是否已收藏此文章
+    $sql = $pdo->prepare('SELECT * FROM keptarticle WHERE userID=? AND articleID=?');
+    $sql->execute([$myID, $ID]);
+    $kept = $sql->rowCount();
+
+    // 是否已追蹤此作者
+    $sql = $pdo->prepare('SELECT * FROM followinguser WHERE userID=? AND followUserID=?');
+    $sql->execute([$myID, $authorID]);
+    $follow = $sql->rowCount();
+
+    // 查詢瀏覽過的標籤資料表中，此文章有的標籤的瀏覽次數
+    // $num = [];
+    // for ($i=0; $i<count($tagIDs); $i++) {
+    //   $num[$i] = 0;
+    //   $sql = $pdo->prepare('SELECT num FROM viewedtag WHERE userID=? AND viewedTagID=?');
+    //   $sql->execute([$myID, $tagIDs[$i]]);
+    //   foreach ($sql->fetchAll() as $row) {
+    //     // 將此文章有的標籤的次數加一
+    //     $num[$i] = $row["num"]+1;
+    //   }
+    //   $sql = $pdo->prepare('UPDATE viewedtag SET num=? WHERE userID=? AND viewedTagID=?');
+    //   $sql->execute([$num[$i], $myID, $tagIDs[$i]]);
+    // }
   }
 } ?>
 <html lang="en">
@@ -105,7 +133,7 @@ foreach ($sql->fetchAll() as $row) {
               if ($authorName == "匿名") {
                 echo '<img src="images/site/大頭貼_藍底.png" width="60px" class="mr-1" alt="帳戶圖片">';
               } else if ($authorPhoto == "default") {
-                echo '<a href="">';
+                echo '<a href="切版_profile_others.php?ID='.$authorID.'">';
                 echo '<img src="images/site/大頭貼_藍底.png" width="60px" class="mr-1" alt="帳戶圖片">';
                 echo '</a>'."\n";
               } else {
@@ -116,10 +144,20 @@ foreach ($sql->fetchAll() as $row) {
 
 
               <div class="media-body">
-                <span class="mt-0 mb-1"><?php echo $authorName; ?></span>
+                <?php if ($authorName == "匿名") {
+                  echo '<span>'.$authorName.'</span>';
+                } else {
+                  echo '<a href="切版_profile_others.php?ID='.$authorID.'" class="mt-0 mb-1">'.$authorName.'</a>';
+                } ?>
+                
                 <?php
-                if (isset($_SESSION["userName"])) {
-                  echo '<span href="#" class="badge badge-dark">追蹤</span>';
+                // 作者沒有匿名的時候，已登入的使用者可以追蹤別人
+                if ($authorName != "匿名") {
+                  if ($myID != "" && $myID != $authorID) {
+                    echo '<span onclick="followUser('.$myID.','.$authorID.')" id="follow" class="badge badge-dark ml-2">';
+                    if ($follow == 1) { echo '取消'; }
+                    echo '追蹤</span>';
+                  }
                 } ?>
                 <p class="m-0"><?php echo $boardName; ?></p>
               </div>
@@ -136,7 +174,7 @@ foreach ($sql->fetchAll() as $row) {
             </p>
             <div class="my-1">
               <?php
-              for ($i=0; $i<count($tagList); $i++) { 
+              for ($i=0; $i<count($tagList); $i++) {
                 echo '<a href="#" class="badge badge-primary mr-2"># '.$tagList[$i].'</a>';
               } ?>
             </div>
@@ -148,10 +186,23 @@ foreach ($sql->fetchAll() as $row) {
               <span class="mr-3"><?php echo $goodPoint; ?></span>
               <img src="./images/site/對話框.png" height="40px" class="" alt="評論" />
               <span class="mr-3"><?php echo $replyCount; ?></span>
-              <img src="./images/site/書籤.png" height="30px" class="" alt="收藏文章" />
+              <?php
+              // 只有已登入的使用者可以收藏別人的文章
+              if ($myID != "" && $myID != $authorID) {
+                  echo '<span onclick="keepArticle('.$myID.','.$ID.')" class="mr-3">';
+                  echo '<img src="images/site/書籤';
+                  if ($kept == 1) { echo '2'; }
+                  echo '.png" height="30px" id="keep'.$ID.'" alt="收藏文章" /></span>';
+              } ?>
               <span class="ml-4"><?php echo $postTime;?></span>
             </div>
             <div class="col-6 text-right">
+              <?php
+              // 只有自己看到自己發佈的文章時才有刪除和編輯功能
+              if ($myID == $authorID) {
+                echo '<img src="./images/site/垃圾桶.png" height="50px" class="" alt="刪除">';
+                echo '<img src="./images/site/筆.png" height="30px" class="" alt="編輯">';
+              } ?>
               <img src="./images/site/檢舉.png" height="40px" class="" alt="檢舉" />
             </div>
           </div>
