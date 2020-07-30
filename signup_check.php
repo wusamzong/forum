@@ -1,7 +1,7 @@
 <?php session_start();
-// 從資料庫取得帳號和電子信箱
+// 從資料庫取得電子信箱
 require("_connect.php");
-$sql = $pdo->prepare('SELECT userName, email FROM account');
+$sql = $pdo->prepare('SELECT email FROM account');
 $sql->execute();
 
 // email
@@ -37,6 +37,8 @@ if ($exist == true) {
 	do {
 		$userName = randomString(10);
 		$exist = false;
+		$sql = $pdo->prepare('SELECT userName FROM account');
+		$sql->execute();
 		foreach ($sql->fetchAll() as $row) {
 			if ($userName == $row["userName"]) {
 				$exist = true;
@@ -70,7 +72,7 @@ if ($exist == true) {
 	// 查詢這個帳號的ID
 	$userID = 0;
 	$sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
-    $sql->execute([$_SESSION["userName"]]);
+    $sql->execute([$userName]);
     foreach ($sql->fetchAll() as $row) {
 		$userID = $row["ID"];
 	}

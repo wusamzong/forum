@@ -43,7 +43,7 @@
     $sql->execute([$ID]);
     $replyCount = $sql->rowCount();
 
-    // 查詢自己的帳號的ID、是否已收藏此文章
+    // 是否已收藏此文章
     $kept = 0;
     if (isset($_SESSION["userName"])) {
         $sql = $pdo->prepare('SELECT * FROM keptarticle WHERE userID=? AND articleID=?');

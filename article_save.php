@@ -37,21 +37,21 @@ $sql = $pdo->prepare('INSERT INTO article (authorID, hideName, boardID, title, c
 $sql->execute([$authorID, $hideName, $boardID, $title, $content, $tagIDs, $postTime]);
 
 // 寫入已發布的標籤資料表
-for ($i=1; $i < count($postedTags); $i++) {
+for ($i=1; $i<count($postedTags); $i++) {
 	// 檢查第i個標籤是否有被這篇文章用到
 	if ($postedTags[$i] == "1") {
 		// 搜尋以前是否有用過
-		$sql = $pdo->prepare('SELECT postedTagID,num FROM postedtag WHERE userName=? AND postedTagID=?');
+		$sql = $pdo->prepare('SELECT postedTagID,num FROM postedtag WHERE userID=? AND postedTagID=?');
 		$sql->execute([$authorID, $i]);
 		// 有用過就更新
 		if ($sql->rowCount() == 1) {
 			foreach ($sql->fetchAll() as $row) {
-				$sql = $pdo->prepare('UPDATE postedtag SET num=? WHERE userName=? AND postedTagID=?');
-				$newNum = $row["num"] + 1;
+				$sql = $pdo->prepare('UPDATE postedtag SET num=? WHERE userID=? AND postedTagID=?');
+				$newNum = $row["num"]+1;
 				$sql->execute([$newNum, $authorID, $i]);
 			}
 		} else { // 沒用過再新增
-			$sql = $pdo->prepare('INSERT INTO postedtag (userName, postedTagID, num) VALUES (?,?,?)');
+			$sql = $pdo->prepare('INSERT INTO postedtag (userID, postedTagID, num) VALUES (?,?,?)');
 			$sql->execute([$authorID, $i, 1]);
 		}
 	}

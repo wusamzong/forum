@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-07-29 11:52:31
+-- 產生時間： 2020-07-30 05:55:08
 -- 伺服器版本： 10.4.13-MariaDB
 -- PHP 版本： 7.4.7
 
@@ -46,8 +46,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID`, `userName`, `email`, `password`, `salt`, `realName`, `nickname`, `photo`, `intro`) VALUES
-(1, 'ppQb8IbJ5t', 'ming@mail.com', '4d2e0b18761d0dbd6dac9be328f9d1817a761efdb913e2a2bf2e299c5d1c0a30', 'g063nq2u', '王小明', '小明', 'default', '小明的自我介紹'),
-(2, 'LT8EOOIOGv', 'hua@mail.com', 'e383e349b879425805dc0113a81b97e67a61e3a8944a3c9a99d7341164a3aedf', 'WZplqz9L', '林小華', '小華', 'default', '小華的自我介紹');
+(1, 'L0Swe4jiTe', 'ming@mail.com', 'c030e28f35f9385e036c37b03a07b6151a892fd7678e7c8b96baa10b5031af64', 'IvxhNa8h', '王小明', '小明', 'default', '小明的自我介紹'),
+(2, 'eGsUUXDHU3', 'hua@mail.com', '2dee467fe1531420063cbfe8e51c57ebaaaa1aa16a98f57a1e24c03ee4b8270a', 'o1kZ3nij', '林小華', '小華', 'default', '小華的自我介紹');
 
 -- --------------------------------------------------------
 
@@ -72,12 +72,7 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`ID`, `authorID`, `hideName`, `boardID`, `title`, `content`, `tagIDs`, `postTime`, `goodPoint`) VALUES
-(1, '1', 1, 4, '標題', '有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。有關飲食控制的文章內容。', '1', '2020-07-22 12:53:56', 0),
-(2, '1', 0, 1, '標題', '有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。有關醫療甘苦談的文章內容。', '2', '2020-07-22 12:54:40', 0),
-(3, '1', 1, 3, '標題', '有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。有關醫療議題的文章內容。', '1 ', '2020-07-22 13:39:11', 0),
-(4, '1', 1, 2, '標題', '有關健康檢查的文章內容。有關健康檢查的文章內容。有關健康檢查的文章內容。', '2 3 ', '2020-07-22 13:40:17', 0),
-(5, '1', 0, 1, '標題', '和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。和醫療甘苦談有關的文章內容。。。。。。。', '1 2 3 4 ', '2020-07-28 11:30:58', 0),
-(6, '2', 0, 4, 'Miss Energy', 'Miss Energy 的料理很清淡', '1 2 ', '2020-07-28 18:24:26', 0);
+(1, '1', 0, 4, '標題', '文章內容。。。。。。。文章內容。。。。。。。文章內容。。。。。。。文章內容。。。。。。。文章內容。。。。。。。文章內容。。。。。。。文章內容。。。。。。。', '6 ', '2020-07-30 11:49:50', 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +143,7 @@ INSERT INTO `keptarticle` (`userID`, `articleID`) VALUES
 --
 
 CREATE TABLE `postedtag` (
-  `userName` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `userID` int(10) NOT NULL,
   `postedTagID` int(10) NOT NULL,
   `num` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -157,16 +152,8 @@ CREATE TABLE `postedtag` (
 -- 傾印資料表的資料 `postedtag`
 --
 
-INSERT INTO `postedtag` (`userName`, `postedTagID`, `num`) VALUES
-('ppQb8IbJ5t', 1, 2),
-('ppQb8IbJ5t', 2, 2),
-('ppQb8IbJ5t', 3, 1),
-('1', 1, 3),
-('1', 2, 1),
-('1', 3, 1),
-('1', 4, 1),
-('2', 1, 1),
-('2', 2, 1);
+INSERT INTO `postedtag` (`userID`, `postedTagID`, `num`) VALUES
+(1, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -182,14 +169,6 @@ CREATE TABLE `reply` (
   `postTime` datetime NOT NULL,
   `goodPoint` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- 傾印資料表的資料 `reply`
---
-
-INSERT INTO `reply` (`ID`, `articleID`, `authorID`, `content`, `postTime`, `goodPoint`) VALUES
-(1, '5', '1', '一段留言', '2020-07-28 16:08:26', 0),
-(2, '5', '1', '留言', '2020-07-28 16:12:19', 0);
 
 -- --------------------------------------------------------
 
@@ -226,7 +205,9 @@ INSERT INTO `tag` (`ID`, `name`) VALUES
 (1, '心情'),
 (2, '身體'),
 (3, '生死'),
-(4, '急診');
+(4, '急診'),
+(5, '健康'),
+(6, '飲食');
 
 -- --------------------------------------------------------
 
@@ -245,10 +226,14 @@ CREATE TABLE `viewedtag` (
 --
 
 INSERT INTO `viewedtag` (`userID`, `viewedTagID`, `num`) VALUES
-(1, 1, 10),
-(1, 2, 10),
-(1, 3, 0),
-(1, 4, 10);
+(1, 6, 2),
+(1, 0, 2),
+(2, 1, 10),
+(2, 2, 10),
+(2, 3, 0),
+(2, 4, 0),
+(2, 5, 10),
+(2, 6, 0);
 
 --
 -- 已傾印資料表的索引
@@ -298,7 +283,7 @@ ALTER TABLE `account`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `board`
@@ -310,13 +295,13 @@ ALTER TABLE `board`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

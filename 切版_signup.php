@@ -92,13 +92,13 @@
     }
     // 選擇與取消
     function chooseTag(ID) {
-        tagCount[ID] = tagCount[ID] % 10 + 10;
+        tagCount[ID] = 10;
         document.getElementById(ID).style.display = "inline";
         tagTotal();
     }
 
     function deleteTag(ID) {
-        tagCount[ID] = tagCount[ID] % 10;
+        tagCount[ID] = 0;
         document.getElementById(ID).style.display = "none";
         tagTotal();
     }

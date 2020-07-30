@@ -94,23 +94,23 @@
 					</div>
 
 					<div style="width: 1080px; height: 360px; overflow: auto;" class="border-top border-bottom col-8">
-						<p id="rowCount" class="displayNone">
-							<?php echo $sql->rowCount(); ?></p>
 						<ul style="list-style: none; font-size: 26px;" class="p-3">
 							<?php
 							$sql = $pdo->prepare('SELECT * FROM tag');
             				$sql->execute();
             				foreach ($sql->fetchAll() as $row) {
-								echo '<li onclick="chooseTag('."'".$row["ID"]."'".')"'.' class="border-bottom p-2 mb-1"'.'># '.$row['name'].'</li>';
+								echo '<li onclick="chooseTag('.$row["ID"].')"'.' class="border-bottom p-2 mb-1"'.'># '.$row['name'].'</li>';
             				} ?>
 						</ul>
+						<p id="rowCount" class="displayNone">
+							<?php echo $sql->rowCount(); ?></p>
 					</div>
 					<div class="col-8 mt-2">
 						<?php
             			$sql = $pdo->prepare('SELECT * FROM tag');
             			$sql->execute();
             			foreach ($sql->fetchAll() as $row) {
-                			echo '<span id="'.$row['ID'].'" onclick="deleteTag('."'".$row["ID"]."'".')"'.' class="btn btn-secondary ml-2 displayNone">#'.$row['name'].'<a class="ml-2 text-light">X</a></span>';
+                			echo '<span id="'.$row['ID'].'" onclick="deleteTag('.$row["ID"].')"'.' class="btn btn-secondary ml-2 displayNone">#'.$row['name'].'<a class="ml-2 text-light">X</a></span>';
             			} ?>
 						<p id="tagError"></p>
 						<input type="hidden" id="tagCount" name="tagCount"/>
@@ -190,18 +190,18 @@
 		}
         // 選擇與取消
         function chooseTag(ID) {
-            tagCount[ID]  = tagCount[ID]%1 +1;
+            tagCount[ID]  = 1;
             document.getElementById(ID).style.display = "inline";
             tagTotal();
         }
         function deleteTag(ID) {
-            tagCount[ID]  = tagCount[ID]%1;
+            tagCount[ID]  = 0;
             document.getElementById(ID).style.display = "none";
             tagTotal();
         }
         function tagTotal() {
             tagCount[0] = 0;
-            for (let i=0; i<=tagsQuantity; i++) {
+            for (let i=1; i<=tagsQuantity; i++) {
                 tagCount[0] += tagCount[i];
             }
             document.getElementById("tagCount").value = tagCount.join(" ");
@@ -210,7 +210,7 @@
         function validateForm() {
             tagTotal();
             if (tagCount[0] < 1) {
-                document.getElementById("tagError").innerHTML = "請選擇至少一個標籤";
+                document.getElementById("tagError").innerHTML = "請選擇至少一個標籤"+tagCount[0];
                 return false;
             } else { document.getElementById("tagError").innerHTML = ""; }
         }

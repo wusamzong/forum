@@ -87,19 +87,23 @@ foreach ($sql->fetchAll() as $row) {
     $sql->execute([$myID, $authorID]);
     $follow = $sql->rowCount();
 
-    // 查詢瀏覽過的標籤資料表中，此文章有的標籤的瀏覽次數
-    // $num = [];
-    // for ($i=0; $i<count($tagIDs); $i++) {
-    //   $num[$i] = 0;
-    //   $sql = $pdo->prepare('SELECT num FROM viewedtag WHERE userID=? AND viewedTagID=?');
-    //   $sql->execute([$myID, $tagIDs[$i]]);
-    //   foreach ($sql->fetchAll() as $row) {
-    //     // 將此文章有的標籤的次數加一
-    //     $num[$i] = $row["num"]+1;
-    //   }
-    //   $sql = $pdo->prepare('UPDATE viewedtag SET num=? WHERE userID=? AND viewedTagID=?');
-    //   $sql->execute([$num[$i], $myID, $tagIDs[$i]]);
-    // }
+    // 將此文章有的標籤的瀏覽次數加一
+    for ($i=0; $i<count($tagIDs); $i++) {
+		  // 搜尋以前是否有用過
+      $sql = $pdo->prepare('SELECT num FROM viewedtag WHERE userID=? AND viewedTagID=?');
+      $sql->execute([$myID, $tagIDs[$i]]);
+      // 有用過就更新
+      if ($sql->rowCount() == 1) {
+        foreach ($sql->fetchAll() as $row) {
+          $sql = $pdo->prepare('UPDATE viewedtag SET num=? WHERE userID=? AND viewedTagID=?');
+          $newNum = $row["num"]+1;
+          $sql->execute([$newNum, $myID, $tagIDs[$i]]);
+        }
+      } else { // 沒用過再新增
+        $sql = $pdo->prepare('INSERT INTO viewedtag (userID, viewedTagID, num) VALUES (?,?,?)');
+        $sql->execute([$myID, $tagIDs[$i], 1]);
+      }
+    }
   }
 } ?>
 <html lang="en">
