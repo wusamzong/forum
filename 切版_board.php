@@ -19,7 +19,7 @@ foreach ($sql->fetchAll() as $row) {
 </head>
 
 <body>
-  <div class="container-md" style="margin: 0 10%;">
+<div class="container-lg bodySpace">
     <div class="row">
       <div class="col-12">
         <?php if (!isset($_SESSION["userName"])) {
@@ -28,12 +28,12 @@ foreach ($sql->fetchAll() as $row) {
           require("切版_header,登入後.php");
         } ?>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 d-none d-xl-block p-03">
         <?php require("切版_nav.php"); ?>
       </div>
 
-      <div class="col-9">
-        <div class="mx-1 mt-4 row p-2 align-items-end rounded" style="width:100%; height: 200px; background-color: #4899D0; background-image=images/site/"<?php echo $picture; ?>">
+      <div class="col-xl-9 col-md-12 col-sm-12 pr-0">
+        <div class="mx-1 mt-4 row p-2 align-items-end rounded boardBG" style="background-image="<?php echo $picture; ?>">
           <div class="col">
             <p class="display-4 text-light">
             <?php echo $boardName; ?></p>

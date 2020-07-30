@@ -10,7 +10,7 @@
         echo '<a href="切版_board.php?ID='.$row["ID"].'" class="list-group-item list-group-item-action">' . $row["name"] . '</a>';
     }
     ?>
-    </form>
+   
 </div>
 
 <!-- 推薦文章 -->

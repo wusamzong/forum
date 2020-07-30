@@ -7,9 +7,9 @@
 	<?php require('_css.php') ?>
 </head>
 
-<body class="container-lg" style="height:100vh; margin: 0 10%; overflow:hidden;">
-	<div class="row justify-content-center" id="app">
-		<div class="col-12">
+<body class="bodySpace">
+	<div class="row justify-content-center singleScene" id="app">
+		<div class="col-xl-12">
 			<?php require('切版_header,登入後.php') ?>
 		</div>
 		<div class="col-11 shadow border rounded">
@@ -69,32 +69,34 @@
 
 						</div>
 					</div>
-					<div class="col-6 text-right" >
+					<div class="col-6 text-right">
 						<img src="images/site/檢舉.png" height="50px" alt="檢舉">
 					</div>
 					<!--文章的標題/內文-->
 					<div class="form-group" :class="{displayNone: !step}">
-						<input type="text" name="title" placeholder="標題" maxlength="20" class="form-control form-control-lg w-75 mt-4">
-						<textarea name="content" placeholder="文章內容" minlength="15" maxlength="5000" class="form-control" id="content" style="height: 400px; width: 1080px;"></textarea>
+						<input type="text" name="title" placeholder="標題" maxlength="20" class="form-control titleInputWidth mt-4 mb-2">
+						<textarea name="content" placeholder="文章內容" class="form-control articleContentSize" id="content "></textarea>
 						<span id="error1"></span>
 						<div class="d-flex bd-highlight mb-3">
-							<div class="p-2 bd-highlight"><p class="btn btn-primary" @click="turnStep">下一步</p></div>
+							<div class="p-2 bd-highlight">
+								<p class="btn btn-primary" @click="turnStep">下一步</p>
+							</div>
 						</div>
 					</div>
 				</div>
 				<!--新增文章的第二步-->
 				<div class="row mt-2 ml-4 mr-4 justify-content-center" :class="{displayNone: step}">
 					<h1 class="display-2 text-primary col-8">選擇標籤</h1>
-					<div class="input-group mb-3" style="width:63%">
-						<input type="text" class="form-control" style="height:50px;" placeholder="標籤" aria-label="Recipient's username" aria-describedby="button-addon2">
+					<div class="input-group mb-3 tagSearchBar">
+						<input type="text" class="form-control" placeholder="標籤" aria-label="Recipient's username" aria-describedby="button-addon2">
 						<div class="input-group-append">
-							
+
 							<button class="btn btn-outline-primary" type="button" id="button-addon2">搜尋標籤</button>
 						</div>
 					</div>
 
-					<div style="width: 1080px; height: 360px; overflow: auto;" class="border-top border-bottom col-8">
-						<ul style="list-style: none; font-size: 26px;" class="p-3">
+					<div class="border-top border-bottom col-8 tagList">
+						<ul class="p-3">
 							<?php
 							$sql = $pdo->prepare('SELECT * FROM tag');
             				$sql->execute();

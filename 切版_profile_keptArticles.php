@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container-md" style="margin: 0 10%; ">
+<div class="container-md bodyMargin" >
         <div class="row">
             <div class="col-12">
                 <?php require("切版_header,登入後.php"); ?>

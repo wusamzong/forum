@@ -9,6 +9,45 @@
     overflow: hidden;
 
   }
+    /** article_write */
+    .singleScene{ /**Signin/Signup/article_write */
+    height:100vh; 
+    overflow:hidden;
+  } 
+  .fs-22{/* font-size*/ 
+    font-size: 22px;
+  }
+  .titleInputWidth{
+    width: 65vw!important;
+  }
+  .articleContentSize{
+    height: 400px!important;
+    width: 65vw!important;
+  }
+  .tagSearchBar{
+    width: 63%!important;
+  }.tagSearchBar input{
+    height: 50px;
+  }
+  .tagList{
+    width: 1080px; 
+    height: 360px; 
+    overflow: auto;
+  }.tagList ul{
+    list-style: none; 
+    font-size: 26px;
+  }
+  .displayNone {  /** signup/article_write */
+		display: none;
+	}
+
+  /** board */
+  .boardBG{  /*board background */
+    width:100%; 
+    height: 200px;  
+    background-color: gray;
+  }
+
 
   /** header */
   .hamburgerMenu{
@@ -33,6 +72,31 @@
   .searchInputSize{
     width: 80%!important; 
     height: 50px;
+  }
+    /** Sign in */
+    .signInput{
+    width: 425px!important; 
+    height: 60px; 
+    font-size: 28px;
+  }
+  /** Sign up */
+  .dis-flex{
+    display:flex;
+  }
+  .signupTagSelectBG{ /**註冊時選擇Tag的背景 */
+    width: 600px; 
+    height:450px;
+  }
+  .selectedTagBGSize{   /**註冊時，顯示已選擇的Tag的框 */
+    width: 580px; 
+    height: 70px; 
+    background:white;
+  }
+  .SignUpTagListSize{
+    width: 580px; 
+    height: 350px; 
+    background:white; 
+    overflow-x: auto;
   }
   /** profile_mine */
 
@@ -178,6 +242,14 @@
   .otherSelfIntroduction{
     color:#FFFFFF;
 }
+
+@media screen and (min-width: 1200px){
+    .bodySpace{
+      margin: 0 7%;
+      
+    }
+
+  }
 @media (max-width: 1200px) {
   .bodyMargin{
     margin: 0;
