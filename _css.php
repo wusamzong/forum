@@ -1,103 +1,149 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <style>
   body {
+
     font-family: '微軟正黑體';
   }
 
   .articalContentPreview {
+    width: 80%;
     height: 200px;
     overflow: hidden;
 
   }
-    /** article_write */
-    .singleScene{ /**Signin/Signup/article_write */
-    height:100vh; 
-    overflow:hidden;
-  } 
-  .fs-22{/* font-size*/ 
+
+  /** article_write */
+  .singleScene {
+    /**Signin/Signup/article_write */
+
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .fs-22 {
+    /* font-size*/
     font-size: 22px;
   }
-  .titleInputWidth{
-    width: 65vw!important;
+
+  .titleInputWidth {
+    width: 70vw !important;
   }
-  .articleContentSize{
-    height: 400px!important;
-    width: 65vw!important;
+
+  .articleContentSize {
+    height: 400px !important;
+    width: 70vw !important;
   }
-  .tagSearchBar{
-    width: 63%!important;
-  }.tagSearchBar input{
+  .articleWriteContentPosition{
+    position: relative;
+    top: -50px;
+  }
+
+  .tagSearchBar {
+    width: 70% !important;
+  }
+
+  .tagSearchBar input {
     height: 50px;
   }
-  .tagList{
-    width: 1080px; 
-    height: 360px; 
+
+  .tagList {
+    width: 1080px;
+    height: 360px;
     overflow: auto;
-  }.tagList ul{
-    list-style: none; 
+  }
+
+  .tagList ul {
+    list-style: none;
     font-size: 26px;
   }
-  .displayNone {  /** signup/article_write */
-		display: none;
-	}
+
+  .displayNone {
+    /** signup/article_write */
+    display: none;
+  }
 
   /** board */
-  .boardBG{  /*board background */
-    width:100%; 
-    height: 200px;  
+  .boardBG {
+    /*board background */
+    width: 100%;
+    height: 200px;
     background-color: gray;
   }
 
 
   /** header */
-  .hamburgerMenu{
-    z-index: 3; 
-    width: 75%; 
-    height: 100vh; 
-    position:absolute;
-  }.cursorPointer{
+  .space {
+    height: 65px;
+
+  }
+
+
+  .hamburgerMenu {
+    z-index: 3;
+    width: 75%;
+    height: 100vh;
+    position: absolute;
+  }
+
+  .cursorPointer {
     cursor: pointer;
   }
-  .fs-24{
+
+  .fs-24 {
     font-size: 24px;
   }
-  .articleWriteButton{
-    z-index:2 ;
+
+  .fs-16 {
+    font-size: 16px;
+  }
+
+  .articleWriteButton {
+    z-index: 2;
     position: fixed;
     right: 50px;
     bottom: 50px;
     border-radius: 50px;
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3))
   }
-  .searchInputSize{
-    width: 80%!important; 
-    height: 50px;
+  
+
+  .searchInputSize {
+    width: 80% !important;
+    height: 30px;
   }
-    /** Sign in */
-    .signInput{
-    width: 425px!important; 
-    height: 60px; 
+
+  /** Sign in */
+  .signInput {
+    width: 425px !important;
+    height: 60px;
     font-size: 28px;
   }
+
   /** Sign up */
-  .dis-flex{
-    display:flex;
+  .dis-flex {
+    display: flex;
   }
-  .signupTagSelectBG{ /**註冊時選擇Tag的背景 */
-    width: 600px; 
-    height:450px;
+
+  .signupTagSelectBG {
+    /**註冊時選擇Tag的背景 */
+    width: 600px;
+    height: 450px;
   }
-  .selectedTagBGSize{   /**註冊時，顯示已選擇的Tag的框 */
-    width: 580px; 
-    height: 70px; 
-    background:white;
+
+  .selectedTagBGSize {
+    /**註冊時，顯示已選擇的Tag的框 */
+    width: 580px;
+    height: 70px;
+    background: white;
   }
-  .SignUpTagListSize{
-    width: 580px; 
-    height: 350px; 
-    background:white; 
+
+  .SignUpTagListSize {
+    width: 580px;
+    height: 350px;
+    background: white;
     overflow-x: auto;
   }
+
   /** profile_mine */
 
   /**相同的部分*/
@@ -170,7 +216,7 @@
   }
 
   /**profile_myArticles */
-  
+
   .flexHight {
     height: 700px;
   }
@@ -189,8 +235,10 @@
   .accontContentMargin {
     margin-top: 300px;
   }
-  .accountTitle{
-    color: #1D2D44;margin-top:-150;
+
+  .accountTitle {
+    color: #1D2D44;
+    margin-top: -150;
   }
 
   .flexHight {
@@ -207,9 +255,14 @@
     top: -250px;
     right: 70px;
   }
-.changePasswordFlex{
-  width: 40vw; position:absolute; top: -250px; right: 70px;
-}
+
+  .changePasswordFlex {
+    width: 40vw;
+    position: absolute;
+    top: -250px;
+    right: 70px;
+  }
+
   .close {
     margin-left: 30vw;
   }
@@ -228,31 +281,65 @@
     background: #4899D0;
   }
 
-  .nickname{
-    margin-top:60px ;margin-left:60px ;color:#FFFFFF;
+  .nickname {
+    margin-top: 60px;
+    margin-left: 60px;
+    color: #FFFFFF;
   }
 
-  .followCol{
-    margin-top:70px ; margin-left:-55px ;
-  }
-  .followButton{
-    background: #1D2D44; border: #1D2D44;
+  .followCol {
+    margin-top: 70px;
+    margin-left: -55px;
   }
 
-  .otherSelfIntroduction{
-    color:#FFFFFF;
-}
+  .followButton {
+    background: #1D2D44;
+    border: #1D2D44;
+  }
 
-@media screen and (min-width: 1200px){
-    .bodySpace{
+  .otherSelfIntroduction {
+    color: #FFFFFF;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .bodySpace {
       margin: 0 7%;
-      
+
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .bodyMargin {
+      margin: 0;
     }
 
+    .titleInputWidth {
+      width: 80vw !important;
+    }
+
+    .articleContentSize {
+      height: 200px !important;
+      width: 80vw !important;
+    }
+
+    .tagSearchBar {
+      width: 80% !important;
+    }
+
+    .tagSearchBar input {
+      height: 50px;
+    }
+
+    body {
+      width: 93%;
+    }
+
+    .articleWriteBody{
+      width: 110%;
+    }
+
+    .articleDetailBody {
+      width: 100%;
+    }
   }
-@media (max-width: 1200px) {
-  .bodyMargin{
-    margin: 0;
-  }
-}
 </style>

@@ -9,7 +9,7 @@
 
 <body class="signleScene">
 
-    <div class="container-lg" id="app">
+    <div class="container-xl" id="app">
         <div class="row">
             <div class=" col-xl-6 mt-0 dis-flex flex-column align-items-center border-right dispalyNone">
                 <img class="d-none d-xl-block mt-5" src="./images/site/Logo.png" width="250px" alt="醫聯網" />

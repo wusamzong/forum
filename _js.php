@@ -3,8 +3,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
 var clicked = 'none';
+var hb_clicked = 'none'; //hamburger-menu-icon
+var sc_clicked = 'none'; //searchIcon
 $(document).ready(function() {
   $("#side-nav").addClass("d-none");
+  $("#searchBar").addClass("d-none");
   $("#hamburger-menu").click(function() {
     if(clicked === 'none'){
       $("#side-nav").removeClass("d-none");
@@ -12,8 +15,7 @@ $(document).ready(function() {
     }else{
       $("#side-nav").addClass("d-none");
       clicked = 'none';
-      var hb_clicked = 'none'; //hamburger-menu-icon
-      var sc_clicked = 'none'; //searchIcon
+      
       $(document).ready(function() {
         $("#side-nav").addClass("d-none");
         $("#searchBar").addClass("d-none");

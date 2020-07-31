@@ -108,13 +108,13 @@ foreach ($sql->fetchAll() as $row) {
 } ?>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <title><?php echo $title; ?></title>
   <?php require('_css.php') ?>
 </head>
 
-<body class="bodySpace">
+<body class="bodySpace articleDetailBody">
   <div class="container-xl">
     <div class="row">
       <div class="col-12">
@@ -128,11 +128,11 @@ foreach ($sql->fetchAll() as $row) {
         <?php require("切版_nav.php"); ?>
       </div>
       <div class="col-xl-9 col-lg-12 mt-4">
-        <div class="border bg-white shadow rounded p-3">
-          <div class="row mt-4 ml-4 mr-4">
+        <div class="border bg-white shadow rounded p-1 p-xl-3">
+          <div class="row m-4 mb-0">
 
             <!--文章的基本資料-->
-            <div class="media col-6">
+            <div class="media col-6 pl-0">
               <?php
               if ($authorName == "匿名") {
                 echo '<img src="images/site/大頭貼_藍底.png" width="60px" class="mr-1" alt="帳戶圖片">';
@@ -198,9 +198,10 @@ foreach ($sql->fetchAll() as $row) {
                   if ($kept == 1) { echo '2'; }
                   echo '.png" height="30px" id="keep'.$ID.'" alt="收藏文章" /></span>';
               } ?>
-              <span class="ml-4"><?php echo $postTime;?></span>
+              
             </div>
-            <div class="col-6 text-right">
+            <div class="col-6 text-right pl-0">
+              <span class="ml-4"><?php echo $postTime;?></span>
               <?php
               // 只有自己看到自己發佈的文章時才有刪除和編輯功能
               if ($myID == $authorID) {

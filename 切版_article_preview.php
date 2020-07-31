@@ -52,12 +52,12 @@
     }
 
     // 輸出文章
-    echo '<article><div class="row shadow m-1 p-5 border rounded" id="app">'."\n";
+    echo '<article><div class="row shadow-xl m-xl-1 m-lg-0 p-xl-5 p-3  border rounded" id="app">'."\n";
         // 標題、看板名稱、作者名字、作者照片
         echo '<div class="col-12" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'"><h3>'.$title.'</h3></div>'."\n";
         echo '<div class="col-12 row justify-content-between border-bottom">'."\n";
-            echo '<div class="col-3"><span>'.$boardName.'</span></div>';
-            echo '<div class="col-3 text-right">';
+            echo '<div class="col-6"><span>'.$boardName.'</span></div>';
+            echo '<div class="col-6 text-right">';
             if ($authorName == "匿名") {
                 echo '<span>'.$authorName;
                 echo '<img src="images/site/大頭貼_藍底.png" height="25px" class="mb-2 ml-1" alt="帳戶圖片">';
@@ -77,10 +77,10 @@
         echo '</div>'."\n";
 
         // 文章內容、讚數、回覆數、發文時間
-        echo '<div class="col-12 articalContentPreview border-bottom text-justify" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'">';
+        echo '<div class="col-12 articalContentPreview border-bottom text-justify pt-3" onclick="window.location.href='."'切版_article_detail.php?ID=".$ID."'".'">';
             echo '<p>'.$content.'</p>';
         echo '</div>'."\n";
-        echo '<div class="col-12 row justify-content-between"><div class="col-6">'."\n";
+        echo '<div class="col-12 row justify-content-between pt-2"><div class="col-12">'."\n";
             echo '<img src="images/site/讚.png" height="40px" class="" alt="按讚" />';
             echo '<span class="mr-3">'.$goodPoint.'</span>'."\n";
             echo '<img src="images/site/對話框.png" height="40px" class="" alt="評論" />';
@@ -101,7 +101,7 @@
         if ($myID == $authorID) {
         echo '<div class="col-2 text-right">';
             echo '<img src="./images/site/垃圾桶.png" height="50px" class="" alt="刪除">';
-            echo '<img src="./images/site/筆.png" height="30px" class="" alt="編輯">';
+            echo '<img src="./images/site/筆.png" height="25px" class="" alt="編輯">';
         echo '</div>'."\n";
         }
         echo '</div>'."\n";

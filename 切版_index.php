@@ -4,6 +4,7 @@
 <head>
     <title>論壇</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <?php require('_css.php') ?>
 </head>
 
@@ -24,8 +25,9 @@
                 <h1 class="display-4 mt-2">最新文章</h1>
                 
                 <?php // 查詢自己的帳號的ID
+                $myID = "";
                 if (isset($_SESSION["userName"])) {
-                    $myID = "";
+                    
                     $sql = $pdo->prepare('SELECT ID FROM account WHERE userName=?');
                     $sql->execute([$_SESSION["userName"]]);
                     foreach ($sql->fetchAll() as $row) {

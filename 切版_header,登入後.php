@@ -1,15 +1,18 @@
 <!-- 頁首 -->
 <header>
-  <div class="d-block d-xl-none mb-1">
+  <div class="space d-block d-xl-none">  <!--補足手機板的header因為fix而多出來的空間-->
+    1
+  </div>
+  <div class="d-block d-xl-none mb-1 sideBar fixed-top ">
     <!--右下角新增文章按鈕-->
-    <a href="切版_article_write.php"><img class="articleWriteButton" src="./images/site/筆_手機版.png" width="80px" alt=""></a>
-    <nav class="navbar navbar-expand-xl navbar-primary bg-primary d-flex">
+    <a href="切版_article_write.php"><img class="articleWriteButton" src="./images/site/筆_手機版.png" width="40px" alt=""></a>
+    <nav class="navbar navbar-expand-xl navbar-primary bg-primary d-flex ">
       <img id="hamburger-menu" src="./images/site/漢堡導覽列.png" alt="" height="43px;" class="p-2 ml-3" />
       <img id="searchIcon" src="./images/site/搜尋.png" alt="" height="45px;" class="p-2 ml-3" />
     </nav>
     <!--搜尋-->
-    <div id="searchBar" class="bg-light p-2">
-      <form class="form-inline mx-5 my-2">
+    <div id="searchBar" class="bg-light p-1">
+      <form class="form-inline mx-3 my-2 px-5">
         <input class="form-control mr-sm-2 p-3 searchInputSize" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-primary my-2 my-sm-0 px-3" type="submit">Search</button>
       </form>
@@ -33,31 +36,31 @@
         } ?>
       </div>
 
-      <div class="list-group mt-3">
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer fs-22">病痛Q&A</a>
-        <a class="list-group-item list-group-item-action disabled pl-5 bg-light fs-22">看板總覽</a>
+      <div class="list-group mt-2">
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer fs-22">病痛Q&A</a>
+        <a class="list-group-item list-group-item-action disabled pl-3 bg-light fs-22">看板總覽</a>
         <?php
         require("_connect.php");
         $sql = $pdo->prepare('SELECT ID,name FROM board');
         $sql->execute();
         foreach ($sql->fetchAll() as $row) {
-          echo '<a href="切版_board.php?ID=' . $row["ID"] . '" class="list-group-item list-group-item-action pl-5 bg-light fs-22">' . $row["name"] . '</a>';
+          echo '<a href="切版_board.php?ID=' . $row["ID"] . '" class="list-group-item list-group-item-action pl-3 fs-22">' . $row["name"] . '</a>';
         }
         ?>
-        <a class="list-group-item list-group-item-action disabled pl-5 bg-light fs-22">會員專區</a>
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer" href="切版_profile_mine.php">基本資料</a>
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer" href="切版_profile_account.php">帳號密碼</a>
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer" href="切版_profile_keptArticles.php">收藏文章</a>
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer" href="切版_profile_myArticles.php">已發佈文章</a>
-        <a class="list-group-item list-group-item-action pl-5 cursorPointer" href="signout.php">登出</a>
+        <a class="list-group-item list-group-item-action disabled pl-3 bg-light fs-22">會員專區</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_mine.php">基本資料</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_account.php">帳號密碼</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_keptArticles.php">收藏文章</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_myArticles.php">已發佈文章</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="signout.php">登出</a>
       </div>
       <div class="row m-4">
-        <div class="col-3"><a href="">關於我們</a></div>
-        <div class="col-7 "><a href="">最新消息</a></div>
-        <div class="col-3"><a href="">人才招募</a></div>
-        <div class="col-7 "><a href="">免責聲明</a></div>
-        <div class="col-3"><a href="">業務合作</a></div>
-        <div class="col-7 "><a href="">客服中心</a></div>
+        <div class="col-6"><a href="">關於我們</a></div>
+        <div class="col-6 "><a href="">最新消息</a></div>
+        <div class="col-6"><a href="">人才招募</a></div>
+        <div class="col-6 "><a href="">免責聲明</a></div>
+        <div class="col-6"><a href="">業務合作</a></div>
+        <div class="col-6 "><a href="">客服中心</a></div>
       </div>
     </div>
   </div>

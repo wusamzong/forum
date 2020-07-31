@@ -21,7 +21,7 @@
             </p>
         </div>
         <div class="col-12 row justify-content-between">
-            <div class="col-5">
+            <div class="col-6">
                 <img src="./images/site/讚.png" height="40px" class="" alt="按讚" />
                 <span class="mr-3">12</span>
                 <img src="./images/site/對話框.png" height="40px" class="" alt="評論" />
@@ -29,7 +29,7 @@
                 <img src="./images/site/書籤.png" height="30px" class="" alt="收藏文章" />
                 <span >2 hours ago</span>
             </div>
-            <div class="col-2 text-right">
+            <div class="col-6 text-right">
                 <img src="./images/site/垃圾桶.png" height="50px" class="" alt="刪除">
             </div>
         </div>
