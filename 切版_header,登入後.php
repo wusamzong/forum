@@ -37,7 +37,8 @@
       </div>
 
       <div class="list-group mt-2">
-        <a class="list-group-item list-group-item-action pl-3 cursorPointer fs-22">病痛Q&A</a>
+        <a href="./切版_index.php" class="list-group-item list-group-item-action pl-3 cursorPointer fs-22">首頁</a>
+        <a href="https://expert.med-net.com/index" class="list-group-item list-group-item-action pl-3 cursorPointer fs-22">病痛Q&A</a>
         <a class="list-group-item list-group-item-action disabled pl-3 bg-light fs-22">看板總覽</a>
         <?php
         require("_connect.php");

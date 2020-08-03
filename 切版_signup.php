@@ -38,7 +38,7 @@
                             <p id="emailError"></p>
                             <input type="password" name="password" placeholder="密碼" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg signInput"  />
                             <p id="passwordError"></p>
-                            <p>您已經註冊了嗎？<a href="signin.php">現在登入</a></p>
+                            <p>您已經註冊了嗎？<a href="./切版_signin.php">現在登入</a></p>
                             <p class="btn btn-primary" @click="turnStep">下一步</p>
                         </div>
                     </div>
