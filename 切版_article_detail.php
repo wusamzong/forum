@@ -228,7 +228,7 @@ foreach ($sql->fetchAll() as $row) {
                 echo '<input type="hidden" name="authorID" value="'.$myID.'"/>';
                 echo '<div class="form-group">';
                   echo '<label>留言</label>';
-                  echo '<textarea class="form-control" id="" name="content" style="width: 800px; height: 100px;"></textarea>';
+                  echo '<textarea class="form-control" id="" name="content" style="width: 80%; height: 100px;"></textarea>';
                   echo '<input type="submit" class="btn btn-primary" value="送出"/>';
                 echo '</div></form></div></div>';
           } ?>

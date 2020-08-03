@@ -53,7 +53,7 @@
         <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_account.php">帳號密碼</a>
         <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_keptArticles.php">收藏文章</a>
         <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="切版_profile_myArticles.php">已發佈文章</a>
-        <a class="list-group-item list-group-item-action pl-3 cursorPointer" href="signout.php">登出</a>
+        <a class="list-group-item list-group-item-action pl-3 cursorPointer fs-22" href="signout.php">登出</a>
       </div>
       <div class="row m-4">
         <div class="col-6"><a href="">關於我們</a></div>
@@ -98,7 +98,7 @@
             } ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="切版_profile_切版_profile_editInfo.php">個人主頁</a>
+            <a class="dropdown-item" href="切版_profile_mine.php">個人主頁</a>
             <a class="dropdown-item" href="切版_profile_account.php">基本資料</a>
             <a class="dropdown-item" href="切版_profile_keptArticles.php">已收藏文章</a>
             <a class="dropdown-item" href="切版_profile_myArticles.php">已發佈文章</a>
