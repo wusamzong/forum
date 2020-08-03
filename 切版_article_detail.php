@@ -168,7 +168,7 @@ foreach ($sql->fetchAll() as $row) {
             </div>
             <div class="col-6 text-right">
               <span  onclick="history.back();location.reload()">
-              <img src="./images/site/關閉.png" height="60px" alt="關閉文章"></span>
+              <img src="./images/site/關閉.png" height="40px" alt="關閉文章"></span>
             </div>
           </div>
           <!--內文/標籤-->
@@ -208,7 +208,7 @@ foreach ($sql->fetchAll() as $row) {
                 echo '<img src="./images/site/垃圾桶.png" height="50px" class="" alt="刪除">';
                 echo '<img src="./images/site/筆.png" height="30px" class="" alt="編輯">';
               } ?>
-              <img src="./images/site/檢舉.png" height="40px" class="" alt="檢舉" />
+              <img src="./images/site/檢舉.png" height="20px" class="" alt="檢舉" />
             </div>
           </div>
 

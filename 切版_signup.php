@@ -4,10 +4,11 @@
 <head>
     <title>註冊</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <?php require('_css.php') ?>
 </head>
 
-<body class="signleScene">
+<body class="p-0 m-0 singleScene">
 
     <div class="container-xl" id="app">
         <div class="row">
@@ -21,10 +22,10 @@
                 <?php require('切版_header,登入前.php') ?>
             </div>
 
-            <div class="col-xl-6 col-lg-12 p-5">
-                <div class="float-right"><a href="切版_index.php" class="text-right fs-24">首頁</a></div><br>
+            <div class="col-xl-6 col-lg-12 p-0 p-xl-5 mt-xl-5">
+                <div class="float-right mr-4"><a href="切版_index.php" class="text-right fs-24">首頁</a></div><br>
 
-                <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
+                <form class="mt-xl-5 input-group input-group-lg d-flex align-items-center flex-column p-0" name="signup" onsubmit="return validateForm()" action="signup_check.php" method="POST" enctype="multipart/form-data">
                     <!--輸入基本資料-->
                     <div :class="{displayNone: !step}">
                         <div class="mt-5 d-flex align-items-center flex-column">

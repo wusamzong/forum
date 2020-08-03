@@ -30,7 +30,7 @@ foreach ($sql->fetchAll() as $row) {
         echo '<div class="col-6 text-right">';
         echo '<img src="./images/site/讚.png" height="40px" alt="讚數">';
         echo '<span>'.$goodPoint.'</span>';
-        echo '<img src="./images/site/檢舉.png" height="35px" alt="檢舉">';
+        echo '<img src="./images/site/檢舉.png" class="ml-2" height="20px" alt="檢舉">';
       echo '</div>';
       echo '<p style="white-space:pre-wrap;">'.$content.'</p>';
     echo '</div></div></div>';

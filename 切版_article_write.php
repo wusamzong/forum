@@ -9,7 +9,7 @@
 </head>
 
 <body class="bodySpace articleWriteBody">
-	<div class="container-sm" id="app">
+	<div class="container-xl" id="app">
 		<div class="row d-flex justify-content-center singleScene" >
 			<div class="col-xl-12">
 				<?php require('切版_header,登入後.php') ?>

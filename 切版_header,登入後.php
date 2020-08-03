@@ -19,7 +19,7 @@
     </div>
     <!--按下漢堡導覽且已登入-->
     <div id="side-nav" class=" float-left bg-white border shadow p-0 hamburgerMenu">
-      <div class="media ml-5 mt-4">
+      <div class="media ml-2 mt-4">
         <?php require("_connect.php");
         $sql = $pdo->prepare('SELECT nickname,photo,email FROM account WHERE userName=?');
         $sql->execute([$_SESSION["userName"]]);
@@ -62,6 +62,7 @@
         <div class="col-6"><a href="">業務合作</a></div>
         <div class="col-6 "><a href="">客服中心</a></div>
       </div>
+      
     </div>
   </div>
 

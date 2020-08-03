@@ -15,7 +15,7 @@
   /** article_write */
   .singleScene {
     /**Signin/Signup/article_write */
-
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
   }
@@ -77,12 +77,12 @@
 
   }
 
-
   .hamburgerMenu {
     z-index: 3;
     width: 75%;
-    height: 100vh;
+    height: 90vh;
     position: absolute;
+    overflow-y: auto;
   }
 
   .cursorPointer {
@@ -114,7 +114,7 @@
 
   /** Sign in */
   .signInput {
-    width: 425px !important;
+    width: 435px !important;
     height: 60px;
     font-size: 28px;
   }
@@ -341,5 +341,26 @@
     .articleDetailBody {
       width: 100%;
     }
+    .signInput {
+      width: 80vw !important;
+
+    }
+    .signupTagSelectBG {
+      /**註冊時選擇Tag的背景 */
+      width: 95vw;
+      height: 50vh;
+    }
+    .selectedTagBGSize {
+    /**註冊時，顯示已選擇的Tag的框 */
+    width: 90vw;
+    height: 50px;
+    background: white;
+  }.SignUpTagListSize {
+    width: 90vw;
+    height: 250px;
+    background: white;
+    overflow-x: auto;
+  }
+
   }
 </style>

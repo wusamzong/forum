@@ -4,6 +4,7 @@
 <head>
   <title>登入</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <?php require('_css.php') ?>
 </head>
 
@@ -19,10 +20,10 @@
       <div class="col-12 d-xl-none m-0 p-0 ">
         <?php require('切版_header,登入前.php') ?>
       </div>
-      <div class="col-xl-6 p-5 mt-5 clearfix">
-        <div class="float-right mt-5 fs-24"><a href="切版_index.php" class="text-right">首頁</a></div><br>
-        <form class="mt-5 input-group input-group-lg d-flex align-items-center flex-column" name="signin" onsubmit="return validateForm()" action="signin_check.php" method="POST" enctype="multipart/form-data">
-          <h1 class="display-2 text-primary mt-5">登入</h1>
+      <div class="col-xl-6 col-lg-12 p-0 p-xl-5 mt-xl-5">
+        <div class="float-right mt-xl-5 mr-4 fs-24"><a href="切版_index.php" class="text-right">首頁</a></div><br>
+        <form class="mt-xl-5 input-group input-group-lg d-flex align-items-center flex-column" name="signin" onsubmit="return validateForm()" action="signin_check.php" method="POST" enctype="multipart/form-data">
+          <h3 class="display-2 text-primary mt-5">登入</h3>
           <input type="email" name="email" class="form-control mt-3 signInput" placeholder="電子信箱：" />
           <p id="emailError"></p>
           <input type="password" name="password" class="form-control mt-3 signInput" placeholder="密碼：" />

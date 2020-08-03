@@ -3,7 +3,7 @@
   <div class="space d-block d-xl-none"> <!--補足手機板的header因為fix而多出來的空間-->
     1
   </div>
-  <div class="d-block d-xl-none mb-1 sideBar fixed-top">
+  <div class="d-block d-xl-none mb-1 fixed-top">
 
     <!--漢堡導覽按鈕-->
     <nav class="navbar navbar-expand-xl navbar-primary bg-primary d-flex ">
