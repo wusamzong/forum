@@ -15,13 +15,13 @@
 			<div class="col-12">
 				<?php require("切版_header,登入後.php"); ?>
 			</div>
-			<div class="col-3" style="height:1000px; background:#4899D0;">
+			<div class="col-xl-3 leftNavigationBar d-none d-xl-block">
 				<?php require("切版_profile_nav.php"); ?>
 			</div>
 
-			<div class="col-9">
-				<div class="d-flex align-items-center flex-column bd-highlight mb-3 " style=height:700px;>
-					<h1 class="mt-5 mb-4 font-weight-bolder" style="color: #1D2D44;">帳號密碼修改</h1>
+			<div class="col-9 accontContentMargin">
+			<h2 class=" mb-5 font-weight-bolder text-center accountTitle">帳號密碼修改</h2>
+			   <div class="d-flex align-items-center flex-column bd-highlight mb-3 flexHight">
 
 					<?php require("_connect.php");
 					$sql = $pdo->prepare('SELECT email FROM account WHERE userName=?');

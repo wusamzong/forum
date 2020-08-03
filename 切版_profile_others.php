@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="container-md" style="margin: 0 10%;">
+    <div class="container-md bodyMargin">
         <div class="row">
             <div class="col-12">
                 <?php if (!isset($_SESSION["userName"])) {
@@ -19,7 +19,7 @@
                     require("切版_header,登入後.php");
                 } ?>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="col-xl-3 d-none d-xl-block">
                 <?php require("切版_nav.php"); ?>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12 mt-4 homePageBg">

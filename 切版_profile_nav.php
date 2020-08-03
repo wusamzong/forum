@@ -11,8 +11,8 @@
 		echo '<h2 class="text-light mt-3 font-weight-bold">'.$row["nickname"].'</h2>';
 		echo '<h5 class="text-light">'.$row["intro"].'</h5>';
 	} ?>
-	<a class="text-light  " style="font-size: 22px ;margin-top:100px;text-decoration: underline; color:#FFFFF;" href="切版_profile_mine.php">基本資料修改</a>
-	<a class="text-light  " style="font-size: 22px ;text-decoration: underline; color:#FFFFF;" href="切版_profile_account.php">帳號密碼修改</a>
+	<a class="text-light  " style="font-size: 22px ;margin-top:100px;text-decoration: underline; color:#FFFFFF;" href="切版_profile_mine.php">基本資料修改</a>
+	<a class="text-light  " style="font-size: 22px ;text-decoration: underline; color:#FFFFFF;" href="切版_profile_account.php">帳號密碼修改</a>
 	<a class="text-light my-1" style="font-size: 22px;text-decoration: underline;" href="切版_profile_keptArticles.php">所收藏的文章</a>
 	<a class="text-light " style="font-size: 22px;text-decoration: underline;" href="切版_profile_myArticles.php">已發佈的文章</a>
 </div>

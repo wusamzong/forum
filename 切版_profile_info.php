@@ -16,30 +16,30 @@
 	}
 
 	if ($photo == "default") {
-		echo '<img src="images/site/大頭貼_藍底.png" height="200px" alt="個人照片"/>';
+		echo '<img src="images/site/大頭貼.png" height="200px" alt="個人照片"/>';
 	} else {
 		echo '<img src="images/'.$photo.'" height="200px" alt="個人照片"/>';
 	} ?>
 	
-	<div style="padding-left:250px " class="p-10">
+	<div  class="pt-2  editInfoContentPadding">
 		<form name="info" action="info_check.php" method="POST" enctype="multipart/form-data">
 
-		<label style="margin-left:100px;  background:#1F81C4; border:#1F81C4;" class="btn btn-primary btn-lgc mt-3 ">
+		<label  class="btn btn-primary btn-lgc mt-3 uploadHeaderButton">
 			<input type="file" name="photo" accept="image/*" style="display: none"/>選擇新頭貼
 		</label>
 
-		<p style="font-size: 20px; margin-top:20px;">真實姓名：</p>
+		<p  class="trueName">真實姓名：</p>
 		<p><?php echo $realName; ?></p>
 		
-		<p style="font-size: 20px;">暱稱：</p>
+		<p class="nickname_Selfintroduction">暱稱：</p>
 		<p id="ori_nickname"><?php echo $nickname; ?></p>
 		<input type="text" name="nickname" value="<?php echo $nickname; ?>" style="display: none"/>
 		
-		<p style="font-size: 20px;">自我介紹：</p>
+		<p  class="nickname_Selfintroduction">自我介紹：</p>
 		<p id="ori_intro"><?php echo $intro; ?></p>
 		<input type="text" name="intro" value="<?php echo $intro; ?>" style="display: none"/>
 
-		<span id="edit" onclick="edit()" style="margin-left:100px;  background:#1F81C4; border:#1F81C4;" class="btn btn-primary btn-lgc mt-3 ">編輯</span>
+		<span id="edit" onclick="edit()" style="margin-left:50px;  background:#1F81C4; border:#1F81C4;" class="btn btn-primary btn-lgc mt-3 ">編輯</span>
 		<input type="submit" name="submit" value="確定" style="margin-left:100px;  background:#1F81C4; border:#1F81C4; display: none" class="btn btn-primary btn-lgc mt-3 "/>
 
 		<script>

@@ -81,6 +81,7 @@
             echo '<p>'.$content.'</p>';
         echo '</div>'."\n";
         echo '<div class="col-12 row justify-content-between pt-2"><div class="col-12">'."\n";
+        
             echo '<img src="images/site/讚.png" height="40px" class="" alt="按讚" />';
             echo '<span class="mr-3">'.$goodPoint.'</span>'."\n";
             echo '<img src="images/site/對話框.png" height="40px" class="" alt="評論" />';
@@ -94,7 +95,9 @@
                     echo '.png" height="30px" id="keep'.$ID.'" alt="收藏文章" /></span>';
                 }
             }
+            
             echo '<span>'.$postTime.'</span>'."\n";
+            
         echo '</div>'."\n";
 
         // 只有自己看到自己發佈的文章時才有刪除和編輯功能
@@ -106,4 +109,4 @@
         }
         echo '</div>'."\n";
     echo '</div></article>'."\n";
-} ?>
+}

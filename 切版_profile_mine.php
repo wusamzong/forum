@@ -14,10 +14,10 @@
 			<div class="col-12">
 				<?php require("切版_header,登入後.php"); ?>
 			</div>
-			<div class="col-3" style="height:1000px; background:#4899D0;">
+			<div class="col-xl-3 leftNavigationBar d-none d-xl-block">
 				<?php require("切版_profile_nav.php"); ?>
 			</div>
-			<div class="col-9">
+			<div class="col-xl-9 col-lg-12">
 				<?php require("切版_profile_info.php"); ?>
 			</div>
 		</div>

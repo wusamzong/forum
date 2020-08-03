@@ -96,7 +96,7 @@
             } ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="切版_profile_切版_profile_editInfo.php">個人主頁</a>
+            <a class="dropdown-item" href="切版_profile_mine.php">個人主頁</a>
             <a class="dropdown-item" href="切版_profile_account.php">基本資料</a>
             <a class="dropdown-item" href="切版_profile_keptArticles.php">已收藏文章</a>
             <a class="dropdown-item" href="切版_profile_myArticles.php">已發佈文章</a>

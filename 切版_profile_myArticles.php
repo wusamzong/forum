@@ -14,12 +14,12 @@
             <div class="col-12">
                 <?php require("切版_header,登入後.php"); ?>
             </div>
-            <div class="col-3" style="height:1000px; background:#4899D0;">
+            <div class="col-xl-3 leftNavigationBar d-none d-xl-block">
                 <?php require("切版_profile_nav.php"); ?>
             </div>
             <div class="col-9">
-                <div class="d-flex align-items-center flex-column bd-highlight mb-3" style="height: 700px;">
-                    <h1 class="mt-5 p-4 font-weight-bolder" style="color: #1D2D44;">已發佈的文章</h1>
+                <div class="d-flex align-items-center flex-column bd-highlight mb-3 flexHight">
+                    <h1 class="mt-5 p-4 font-weight-bolder titleColor">已發佈的文章</h1>
 
                     <?php // 查詢我的ID
                     $myID = "";
