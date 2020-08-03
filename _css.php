@@ -188,11 +188,11 @@
   }
 
   .editInfoContentPadding {
-    padding-left: 6vw;
+    /*padding-left: 6vw;*/
   }
 
   .uploadHeaderButton {
-    margin-left: 10vw;
+    /*margin-left: 10vw;*/
     background: #1F81C4;
     border: #1F81C4;
   }

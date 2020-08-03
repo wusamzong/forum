@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center flex-column bd-highlight mb-3 flexHight" >
 	<h2 class="mt-5 mb-4 font-weight-bolder titleColor" >基本資料修改</h2>
-	<img src="./images/site/大頭貼.png" height="200px" alt="個人照片" />
+	<img src="images/site/大頭貼_藍底.png" width="200PX" alt="個人照片" />
 
 	<div  class="p-10 editInfoContentPadding">
 		<form method="POST" action="" enctype="multipart/form-data">
